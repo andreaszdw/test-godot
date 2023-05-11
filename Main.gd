@@ -5,8 +5,6 @@ var score
 
 func _ready():
 	randomize()
-	new_game()
-
 
 func game_over():
 	$ScoreTimer.stop()
@@ -16,6 +14,8 @@ func new_game():
 	score = 0
 	$Player.start($StartPosition.position)
 	$StartTimer.start()
+	$HUD.update_score(score)
+	$HUD.show_message("Get Ready")
 
 func _on_MobTimer_timeout():
 	var mob = mob_scene.instance()
