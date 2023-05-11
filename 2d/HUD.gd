@@ -14,7 +14,7 @@ func show_game_over():
 	$Message.text = "Dogde the\nCreeps!"
 	$Message.show()
 	
-	yield(get_tree().create_timer(1), "timeour")
+	yield(get_tree().create_timer(1), "timeout")
 	$StartButton.show()
 	
 func update_score(score):
