@@ -39,6 +39,7 @@ func _process(delta):
 		$AnimatedSprite.flip_v = velocity.y > 0
 
 
+# warning-ignore:unused_argument
 func _on_Player_body_entered(body):
 	hide()
 	emit_signal("hit")
