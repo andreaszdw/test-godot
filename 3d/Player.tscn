@@ -16,5 +16,5 @@ visible = false
 [node name="Character" parent="." instance=ExtResource( 1 )]
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.794329, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0198055, 0 )
 shape = SubResource( 1 )

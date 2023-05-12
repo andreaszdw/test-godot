@@ -2,7 +2,7 @@ extends KinematicBody
 
 export var speed = 14
 
-export var fall_accelaration = 0 #75
+export var fall_accelaration = 75
 
 var velocity = Vector3.ZERO
 
