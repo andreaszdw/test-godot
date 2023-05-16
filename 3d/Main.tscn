@@ -33,12 +33,13 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.18809, 0 )
 transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0 )
 
 [node name="Camera" type="Camera" parent="CameraPivot"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10 )
 
 [node name="Cylinders" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 3, -10 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Cylinders"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0 )
 mesh = SubResource( 3 )
 
 [node name="MeshInstance2" type="MeshInstance" parent="Cylinders"]
@@ -46,7 +47,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, -1, 19 )
 mesh = SubResource( 3 )
 
 [node name="MeshInstance3" type="MeshInstance" parent="Cylinders"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 41, 0, 0 )
 mesh = SubResource( 3 )
 
 [node name="MeshInstance4" type="MeshInstance" parent="Cylinders"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0, 19 )
 mesh = SubResource( 3 )
