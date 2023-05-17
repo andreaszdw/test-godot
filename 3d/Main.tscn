@@ -90,7 +90,7 @@ material/0 = SubResource( 4 )
 curve = SubResource( 5 )
 
 [node name="SpawnLocation" type="PathFollow" parent="SpawnPath"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.6208, 0.442009, -11.0259 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.568, 0.59515, -11.0319 )
 
 [node name="MobTimer" type="Timer" parent="."]
 wait_time = 0.5
