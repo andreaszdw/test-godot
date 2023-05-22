@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://art/test.obj.glb" type="PackedScene" id=1]
+
+[node name="Tank" type="KinematicBody"]
+
+[node name="Pivot" type="Spatial" parent="."]
+
+[node name="Character" type="Spatial" parent="Pivot"]
+
+[node name="testobj" parent="Pivot/Character" instance=ExtResource( 1 )]

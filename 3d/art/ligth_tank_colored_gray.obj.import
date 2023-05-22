@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/ligth_tank_colored_gray.obj-001d831c4434d4e3177f3cc0163fc182.mesh"
+
+[deps]
+
+files=[ "res://.import/ligth_tank_colored_gray.obj-001d831c4434d4e3177f3cc0163fc182.mesh" ]
+
+source_file="res://art/ligth_tank_colored_gray.obj"
+dest_files=[ "res://.import/ligth_tank_colored_gray.obj-001d831c4434d4e3177f3cc0163fc182.mesh", "res://.import/ligth_tank_colored_gray.obj-001d831c4434d4e3177f3cc0163fc182.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286
