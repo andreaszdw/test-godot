@@ -30,5 +30,4 @@ func _input(event):
 
 
 func _on_Player_body_entered(body):
-	print("hit")
 	emit_signal("hit")

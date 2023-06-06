@@ -10,7 +10,8 @@ func _ready():
 	new_game()
 
 func _process(delta):
-	pass
+	if Input.is_action_pressed("fullscreen"):
+		OS.set_window_fullscreen(!OS.window_fullscreen)
 		
 func _input(event):	
 	if event is InputEventMouseMotion:

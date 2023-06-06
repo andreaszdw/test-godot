@@ -6,7 +6,7 @@
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 968, 64, 0, 0, 0, 0, 1208, 56, 0, 0, 0, 0, 1216, 576, 0, 0, 0, 0, 952, 576, 0, 0, 0, 0, 968, 64 )
+"points": PoolVector2Array( 0, 0, 0, 0, 1096, 56, 0, 0, 0, 0, 1272, 56, 0, 0, 0, 0, 1272, 520, 0, 0, 0, 0, 1096, 520, 0, 0, 0, 0, 1096, 56 )
 }
 
 [node name="Main" type="Node"]
@@ -25,8 +25,7 @@ wait_time = 2.0
 curve = SubResource( 1 )
 
 [node name="SpawnPathLocation" type="PathFollow2D" parent="SpawnPath"]
-position = Vector2( 968, 64 )
-rotation = -0.0333227
+position = Vector2( 1096, 56 )
 
 [connection signal="timeout" from="StartTimer" to="." method="_on_StartTimer_timeout"]
 [connection signal="timeout" from="AsteroidTimer" to="." method="_on_AsteroidTimer_timeout"]
