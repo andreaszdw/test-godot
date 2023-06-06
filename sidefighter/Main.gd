@@ -1,27 +1,34 @@
 extends Node
 
-func _ready():
-	print("                 [Screen Metrics]")
-	print("            Display size: ", OS.get_screen_size())
-	print("   Decorated Window size: ", OS.get_real_window_size())
-	print("             Window size: ", OS.get_window_size())
-	print("        Project Settings: Width=", ProjectSettings.get_setting("display/window/size/width"), " Height=", ProjectSettings.get_setting("display/window/size/height")) 
-	print(OS.get_window_size().x)
-	print(OS.get_window_size().y)
+export(PackedScene) var asteroid_scene
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+func new_game():
+	$StartTimer.start()
+	
+func _ready():
+	randomize()
+	new_game()
+
 func _process(delta):
-	if Input.is_action_pressed("fullscreen"):
-		OS.set_window_fullscreen(!OS.window_fullscreen)
-		print("                 [Screen Metrics]")
-		print("            Display size: ", OS.get_screen_size())
-		print("   Decorated Window size: ", OS.get_real_window_size())
-		print("             Window size: ", OS.get_window_size())
-		print("        Project Settings: Width=", ProjectSettings.get_setting("display/window/size/width"), " Height=", ProjectSettings.get_setting("display/window/size/height")) 
-		print(OS.get_window_size().x)
-		print(OS.get_window_size().y)
+	pass
 		
 func _input(event):	
 	if event is InputEventMouseMotion:
 		#print(event.position)
 		pass
+
+func _on_StartTimer_timeout():
+	$AsteroidTimer.start()
+	
+func _on_AsteroidTimer_timeout():
+	var ast = asteroid_scene.instance()
+	
+	var spawn_loc = get_node("SpawnPath/SpawnPathLocation")
+	spawn_loc.offset = randi()
+	ast.position = spawn_loc.position
+	
+	var velocity = Vector2(180, 0)
+	ast.linear_velocity = velocity.rotated(3.14159)
+	
+	add_child(ast)
+	

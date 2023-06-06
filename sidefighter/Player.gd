@@ -1,5 +1,7 @@
 extends Area2D
 
+signal hit
+
 var screen_size
 
 func _ready():
@@ -25,3 +27,8 @@ func _input(event):
 		position.y = size.y * 0.5 * scale.y
 	if position.y > height - size.y * 0.5 * scale.y:
 		position.y = height - size.y * 0.5 * scale.y
+
+
+func _on_Player_body_entered(body):
+	print("hit")
+	emit_signal("hit")
