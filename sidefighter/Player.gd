@@ -31,3 +31,8 @@ func _input(event):
 
 func _on_Player_body_entered(body):
 	emit_signal("hit")
+	body.hitted()
+
+func death():
+	hide()
+	$CollisionPolygon2D.set_deferred("disabled", true)
