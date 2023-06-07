@@ -1,5 +1,7 @@
 extends RigidBody2D
-	
+
+var life = 100
+
 func _ready():
 	$AnimatedSprite.playing = true
 
@@ -8,9 +10,14 @@ func scale(s):
 	$AnimatedSprite.scale.y = s
 	$CollisionShape2D.scale.x = s
 	$CollisionShape2D.scale.y = s
+	life *= s
 
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
 
-func hitted():
+func hitted(h):
 	print("hitted")
+	life -= h
+	if life <= 0:
+		print("Asteroid dead")
+		queue_free()

@@ -4,6 +4,8 @@ signal hit
 
 var screen_size
 
+var life = 1000
+
 func _ready():
 	screen_size = get_viewport_rect().size
 
@@ -31,7 +33,11 @@ func _input(event):
 
 func _on_Player_body_entered(body):
 	emit_signal("hit")
-	body.hitted()
+	life -= body.life
+	body.hitted(life)
+	if life <= 0:
+		print("ship dead")
+		hide()
 
 func death():
 	hide()
