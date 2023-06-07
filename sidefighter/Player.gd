@@ -2,6 +2,8 @@ extends Area2D
 
 signal hit
 
+export(PackedScene) var bullet1_scene
+
 var screen_size
 
 var life = 1000
@@ -12,6 +14,7 @@ func _ready():
 func _input(event):
 	if event is InputEventMouseMotion:
 		 position = event.position
+	
 	var cur = $AnimatedSprite.animation
 	
 	var size = $AnimatedSprite.frames.get_frame(cur, 0).get_size()

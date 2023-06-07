@@ -1,6 +1,7 @@
 extends Node
 
 export(PackedScene) var asteroid_scene
+
 var rng = RandomNumberGenerator.new()
 
 func new_game():
