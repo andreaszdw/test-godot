@@ -2,6 +2,8 @@ extends Node
 
 export(PackedScene) var asteroid_scene
 
+var Bullet = preload("res://bullets/Bullet1.tscn")
+
 var rng = RandomNumberGenerator.new()
 
 func new_game():
@@ -20,6 +22,12 @@ func _input(event):
 	if event is InputEventMouseMotion:
 		#print(event.position)
 		pass
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_LEFT and event.pressed:
+			var b = Bullet.instance()
+			add_child(b)
+			b.position = $Player.position
+		
 
 func _on_StartTimer_timeout():
 	$AsteroidTimer.start()

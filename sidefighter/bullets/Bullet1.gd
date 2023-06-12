@@ -2,10 +2,12 @@ extends Area2D
 
 signal hit
 
-var hit = 10
-var speed = 10
+var hit = 50
+var speed = Vector2(1000, 0)
 
-
+func _physics_process(delta):
+	position += speed * delta
+	
 func _on_Bullet1_body_entered(body):
 	body.hitted(hit)
 	queue_free()
