@@ -160,6 +160,7 @@ animations = [ {
 radius = 41.5933
 
 [node name="Asteroid" type="RigidBody2D"]
+z_index = 98
 gravity_scale = 0.0
 script = ExtResource( 2 )
 
