@@ -1,6 +1,10 @@
 extends Area2D
 
-var Bullet = preload("res://bullets/Bullet1.tscn")
+signal shoot(bullet, position)
+
+#var Bullet = preload("res://bullets/Bullet1.tscn")
+export(PackedScene) var bullet_scene
+
 var leftDown = false
 
 var screen_size
@@ -10,9 +14,10 @@ var life = 1000
 func _ready():
 	screen_size = get_viewport_rect().size
 	
+# warning-ignore:unused_argument
 func _process(delta):
 	if leftDown:
-		shoot()
+		emit_signal("shoot", bullet_scene, position)
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -21,7 +26,7 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT:
 			if event.pressed:
-				leftDown = true	
+				leftDown = true
 			else:
 				leftDown = false
 	
@@ -47,11 +52,6 @@ func _on_Player_body_entered(body):
 	body.hitted(life)
 	if life <= 0:
 		hide()
-
-func shoot():
-	var b = Bullet.instance()
-	b.position = position
-	add_child(b)
 
 func death():
 	hide()

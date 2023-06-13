@@ -7,7 +7,9 @@ var speed = Vector2(1000, 0)
 	
 func _physics_process(delta):
 	position += speed * delta
-	position = position
+	
+func _process(delta):
+	print(position)
 	
 func _on_Bullet1_body_entered(body):
 	body.hitted(hit)

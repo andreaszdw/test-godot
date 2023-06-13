@@ -15,7 +15,6 @@ script = ExtResource( 2 )
 asteroid_scene = ExtResource( 3 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-z_index = 100
 
 [node name="StartTimer" type="Timer" parent="."]
 one_shot = true
@@ -31,5 +30,6 @@ position = Vector2( 1096, 56 )
 
 [node name="StarsBackground" parent="." instance=ExtResource( 4 )]
 
+[connection signal="shoot" from="Player" to="." method="_on_Player_shoot"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_StartTimer_timeout"]
 [connection signal="timeout" from="AsteroidTimer" to="." method="_on_AsteroidTimer_timeout"]

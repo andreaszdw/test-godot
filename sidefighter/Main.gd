@@ -17,7 +17,8 @@ func _process(delta):
 		OS.set_window_fullscreen(!OS.window_fullscreen)
 
 func _on_StartTimer_timeout():
-	$AsteroidTimer.start()
+	#$AsteroidTimer.start()
+	pass
 	
 func _on_AsteroidTimer_timeout():
 	var ast = asteroid_scene.instance()
@@ -31,3 +32,9 @@ func _on_AsteroidTimer_timeout():
 	ast.linear_velocity = velocity.rotated(3.14159)
 	
 	add_child(ast)	
+
+
+func _on_Player_shoot(bullet, position):
+	var b = bullet.instance()
+	add_child(b)
+	b.position = position

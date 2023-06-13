@@ -11,6 +11,9 @@ height = 16.0
 z_index = 99
 z_as_relative = false
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="BulletSprite" type="Sprite" parent="."]
 z_as_relative = false

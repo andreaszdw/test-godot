@@ -163,10 +163,13 @@ radius = 41.5933
 z_index = 98
 gravity_scale = 0.0
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 31 )
-frame = 23
+frame = 26
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
