@@ -16,8 +16,6 @@ func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
 
 func hitted(h):
-	print("hitted")
 	life -= h
 	if life <= 0:
-		print("Asteroid dead")
 		queue_free()

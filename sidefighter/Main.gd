@@ -2,8 +2,6 @@ extends Node
 
 export(PackedScene) var asteroid_scene
 
-var Bullet = preload("res://bullets/Bullet1.tscn")
-
 var rng = RandomNumberGenerator.new()
 
 func new_game():
@@ -17,17 +15,6 @@ func _ready():
 func _process(delta):
 	if Input.is_action_pressed("fullscreen"):
 		OS.set_window_fullscreen(!OS.window_fullscreen)
-		
-func _input(event):	
-	if event is InputEventMouseMotion:
-		#print(event.position)
-		pass
-	if event is InputEventMouseButton:
-		if event.button_index == BUTTON_LEFT and event.pressed:
-			var b = Bullet.instance()
-			add_child(b)
-			b.position = $Player.position
-		
 
 func _on_StartTimer_timeout():
 	$AsteroidTimer.start()
@@ -43,5 +30,4 @@ func _on_AsteroidTimer_timeout():
 	var velocity = Vector2(360, 0)
 	ast.linear_velocity = velocity.rotated(3.14159)
 	
-	add_child(ast)
-	
+	add_child(ast)	
