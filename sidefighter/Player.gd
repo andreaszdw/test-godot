@@ -12,12 +12,14 @@ var screen_size
 var life = 1000
 
 func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	screen_size = get_viewport_rect().size
 	
 # warning-ignore:unused_argument
 func _process(delta):
 	if leftDown:
-		emit_signal("shoot", bullet_scene, position)
+		if life > 0:
+			emit_signal("shoot", bullet_scene, position)
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -51,7 +53,7 @@ func _on_Player_body_entered(body):
 	life -= body.life
 	body.hitted(life)
 	if life <= 0:
-		hide()
+		death()
 
 func death():
 	hide()

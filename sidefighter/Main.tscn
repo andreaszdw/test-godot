@@ -20,7 +20,10 @@ asteroid_scene = ExtResource( 3 )
 one_shot = true
 
 [node name="AsteroidTimer" type="Timer" parent="."]
+
+[node name="ShootTimer" type="Timer" parent="."]
 wait_time = 0.3
+one_shot = true
 
 [node name="SpawnPath" type="Path2D" parent="."]
 curve = SubResource( 3 )
@@ -33,3 +36,4 @@ position = Vector2( 1096, 56 )
 [connection signal="shoot" from="Player" to="." method="_on_Player_shoot"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_StartTimer_timeout"]
 [connection signal="timeout" from="AsteroidTimer" to="." method="_on_AsteroidTimer_timeout"]
+[connection signal="timeout" from="ShootTimer" to="." method="_on_ShootTimer_timeout"]
