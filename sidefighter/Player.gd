@@ -3,7 +3,7 @@ extends Area2D
 signal shoot(bullet, position)
 
 #var Bullet = preload("res://bullets/Bullet1.tscn")
-export(PackedScene) var bullet_scene
+export(PackedScene) var bullet1_scene
 
 #var data_file = File.new()
 #if data_file.open("res://data.json", File.READ) != OK:
@@ -30,7 +30,7 @@ func _ready():
 func _process(delta):
 	if leftDown:
 		if life > 0:
-			emit_signal("shoot", bullet_scene, position)
+			emit_signal("shoot", bullet1_scene, position)
 
 func _input(event):
 	if event is InputEventMouseMotion:

@@ -39,6 +39,11 @@ func _on_Player_shoot(bullet, position):
 		var b = bullet.instance()
 		add_child(b)
 		b.position = position
+		b.position.y += 10
+		var b2 = bullet.instance()
+		add_child(b2)
+		b2.position = position
+		b2.position.y -= 10
 		$ShootTimer.start()
 		canShoot = false
 
