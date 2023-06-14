@@ -5,6 +5,17 @@ signal shoot(bullet, position)
 #var Bullet = preload("res://bullets/Bullet1.tscn")
 export(PackedScene) var bullet_scene
 
+#var data_file = File.new()
+#if data_file.open("res://data.json", File.READ) != OK:
+#	return
+#var data_text = data_file.get_as_text()
+#data_file.close()
+#var data_parse = JSON.parse(data_text)
+#if data_parse.error != OK:
+#	return
+#var data = data_parse.result
+#$Label.text = data["1"].name
+
 var leftDown = false
 
 var screen_size
