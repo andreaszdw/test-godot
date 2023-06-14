@@ -16,6 +16,7 @@ export(PackedScene) var bullet1_scene
 #var data = data_parse.result
 #$Label.text = data["1"].name
 
+
 var leftDown = false
 
 var screen_size
@@ -23,6 +24,28 @@ var screen_size
 var life = 1000
 
 func _ready():
+	# read json file
+	var json_file = File.new()
+	if json_file.open("res://jsons//test.json", File.READ) != OK:
+		print("error reading file")
+		return
+	var json_text = json_file.get_as_text()
+	json_file.close()
+	var json_parse = JSON.parse(json_text)
+	
+	if json_parse.error != OK:
+		print("error jsons parse")
+		return
+	var data = json_parse.result
+	
+	for i in data.level2.bullets:
+		print(i.y)
+		print(i.x)
+		print(i.speed)
+		print(i.direction[0])
+		print(i.direction[1])
+		print(i.hit)
+	
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	screen_size = get_viewport_rect().size
 	

@@ -1,4 +1,15 @@
 {
-	"level1": 
+	"level1": {
+		"bullets" : [
+			{ "y" : 0, "x": 0, "speed": 1000, "direction": [1, 0], "hit": 50}
+		]
+	},
+	"level2": {
+		"bullets" : [
+			{ "y" : 10, "x": 0, "speed": 1000, "direction": [1, 0], "hit": 50},			
+			{ "y" : -10, "x": 0, "speed": 1000, "direction": [1, 0], "hit": 50}			
+		]
+	}
 }
+
 

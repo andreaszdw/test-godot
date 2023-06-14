@@ -3,10 +3,11 @@ extends Area2D
 signal hit
 
 var hit = 50
-var speed = Vector2(1000, 0)
+var speed = 1000
+var direction = Vector2(1, 0)
 	
 func _physics_process(delta):
-	position += speed * delta
+	position += direction * speed * delta
 	
 func _process(delta):
 	pass
