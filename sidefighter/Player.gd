@@ -1,6 +1,6 @@
 extends Area2D
 
-signal shoot(bullet, position)
+signal shoot(bullet, position, shoot)
 
 #var Bullet = preload("res://bullets/Bullet1.tscn")
 export(PackedScene) var bullet1_scene
@@ -23,6 +23,10 @@ var screen_size
 
 var life = 1000
 
+var shoot = "level4"
+
+var shoot_data = ""
+
 func _ready():
 	# read json file
 	var json_file = File.new()
@@ -34,17 +38,10 @@ func _ready():
 	var json_parse = JSON.parse(json_text)
 	
 	if json_parse.error != OK:
-		print("error jsons parse")
+		print("error json parse")
 		return
-	var data = json_parse.result
-	
-	for i in data.level2.bullets:
-		print(i.y)
-		print(i.x)
-		print(i.speed)
-		print(i.direction[0])
-		print(i.direction[1])
-		print(i.hit)
+		
+	shoot_data = json_parse.result
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	screen_size = get_viewport_rect().size
@@ -53,7 +50,7 @@ func _ready():
 func _process(delta):
 	if leftDown:
 		if life > 0:
-			emit_signal("shoot", bullet1_scene, position)
+			emit_signal("shoot", bullet1_scene, position, shoot_data[shoot])
 
 func _input(event):
 	if event is InputEventMouseMotion:

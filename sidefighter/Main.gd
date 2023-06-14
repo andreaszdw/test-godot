@@ -34,16 +34,20 @@ func _on_AsteroidTimer_timeout():
 	
 	add_child(ast)	
 
-func _on_Player_shoot(bullet, position):
+func _on_Player_shoot(bullet, position, shoot):
 	if canShoot:
-		var b = bullet.instance()
-		add_child(b)
-		b.position = position
-		b.position.y += 10
-		var b2 = bullet.instance()
-		add_child(b2)
-		b2.position = position
-		b2.position.y -= 10
+		
+		for i in shoot.bullets:
+			var b = bullet.instance()
+			add_child(b)
+			b.position = position
+			b.position.x += i.x
+			b.position.y += i.y
+			b.speed = i.speed
+			b.hit = i.hit
+			var dir = Vector2(i.direction[0], i.direction[1])
+			b.direction = dir.normalized()
+			
 		$ShootTimer.start()
 		canShoot = false
 
