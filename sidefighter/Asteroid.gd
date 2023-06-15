@@ -1,22 +1,30 @@
 extends RigidBody2D
 
-var life = 100
+var realLife = 0
+var groundLife = 100
+var startLife = 0
 
 func _ready():
 	$AnimatedSprite.playing = true
 
+func init(v):
+	startLife = groundLife * v
+	scale(v)
+	
 func scale(s):
 	$AnimatedSprite.scale.x = s
 	$AnimatedSprite.scale.y = s
 	$CollisionShape2D.scale.x = s
 	$CollisionShape2D.scale.y = s
-	life *= s
+	realLife = groundLife * s
 
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
 
 func hitted(h):
-	life -= h
-	if life <= 0:
-		print("I'm dead")
+	realLife -= h
+	$"../HUD".addScore(h)
+	scale(realLife/groundLife)
+	if realLife <= 10:
+		$"../HUD".addScore(startLife)
 		queue_free()

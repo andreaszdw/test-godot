@@ -27,7 +27,7 @@ func _on_AsteroidTimer_timeout():
 	var spawn_loc = get_node("SpawnPath/SpawnPathLocation")
 	spawn_loc.offset = rng.randi()
 	ast.position = spawn_loc.position
-	ast.scale(rng.randf_range(0.2, 2))
+	ast.init(rng.randf_range(0.2, 2))
 	
 	var velocity = Vector2(360, 0)
 	ast.linear_velocity = velocity.rotated(3.14159)
@@ -35,8 +35,7 @@ func _on_AsteroidTimer_timeout():
 	add_child(ast)	
 
 func _on_Player_shoot(bullet, position, shoot):
-	if canShoot:
-		
+	if canShoot:		
 		for i in shoot.bullets:
 			var b = bullet.instance()
 			add_child(b)
@@ -44,7 +43,7 @@ func _on_Player_shoot(bullet, position, shoot):
 			b.position.x += i.x
 			b.position.y += i.y
 			b.speed = i.speed
-			b.hit = i.hit
+			b.energy = i.energy
 			var dir = Vector2(i.direction[0], i.direction[1])
 			b.direction = dir.normalized()
 			
