@@ -1,6 +1,7 @@
 extends Area2D
 
 signal shoot(bullet, position, shoot)
+signal hit(life)
 
 #var Bullet = preload("res://bullets/Bullet1.tscn")
 export(PackedScene) var bullet1_scene
@@ -82,6 +83,7 @@ func _input(event):
 
 func _on_Player_body_entered(body):
 	life -= body.life
+	emit_signal("hit", int(life))
 	body.hitted(life)
 	if life <= 0:
 		death()
