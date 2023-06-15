@@ -18,4 +18,5 @@ func _on_VisibilityNotifier2D_screen_exited():
 func hitted(h):
 	life -= h
 	if life <= 0:
+		print("I'm dead")
 		queue_free()

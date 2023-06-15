@@ -7,7 +7,7 @@
 
 [sub_resource type="Curve2D" id=3]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 1096, 56, 0, 0, 0, 0, 1272, 56, 0, 0, 0, 0, 1272, 520, 0, 0, 0, 0, 1096, 520, 0, 0, 0, 0, 1096, 56 )
+"points": PoolVector2Array( 0, 0, 0, 0, 1024, 56, 0, 0, 0, 0, 1272, 56, 0, 0, 0, 0, 1272, 296, 0, 0, 0, 0, 1272, 520, 0, 0, 0, 0, 1096, 520, 0, 0, 0, 0, 1096, 56 )
 }
 
 [node name="Main" type="Node"]
@@ -26,10 +26,12 @@ wait_time = 0.3
 one_shot = true
 
 [node name="SpawnPath" type="Path2D" parent="."]
+position = Vector2( 949.935, 0 )
+scale = Vector2( 0.0645165, 1 )
 curve = SubResource( 3 )
 
 [node name="SpawnPathLocation" type="PathFollow2D" parent="SpawnPath"]
-position = Vector2( 1096, 56 )
+position = Vector2( 1024, 56 )
 
 [node name="StarsBackground" parent="." instance=ExtResource( 4 )]
 

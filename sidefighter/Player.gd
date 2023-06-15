@@ -23,7 +23,7 @@ var screen_size
 
 var life = 1000
 
-var shoot = "level4"
+var shoot = "level1"
 
 var shoot_data = ""
 

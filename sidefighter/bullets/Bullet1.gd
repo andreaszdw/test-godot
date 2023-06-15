@@ -10,7 +10,7 @@ func _physics_process(delta):
 	position += direction * speed * delta
 	
 func _process(delta):
-	pass
+	print(position.x)
 	
 func _on_Bullet1_body_entered(body):
 	body.hitted(hit)
