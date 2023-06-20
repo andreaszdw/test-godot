@@ -28,9 +28,10 @@ func _on_AsteroidTimer_timeout():
 	spawn_loc.offset = rng.randi()
 	ast.position = spawn_loc.position
 	ast.init(rng.randf_range(0.2, 2))
-	
-	var velocity = Vector2(360, 0)
-	ast.direction = velocity.rotated(3.14159)
+#
+#	var velocity = Vector2(360, 0)
+#	ast.set_linear_velocity(velocity.rotated(3.14159))
+	#ast.direction = velocity.rotated(3.14159)
 	
 	add_child(ast)	
 
