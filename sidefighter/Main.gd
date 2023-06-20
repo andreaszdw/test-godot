@@ -1,6 +1,7 @@
 extends Node
 
 export(PackedScene) var asteroid_scene
+export(PackedScene) var power_up_scene
 
 var rng = RandomNumberGenerator.new()
 var canShoot = true
@@ -20,19 +21,14 @@ func _process(delta):
 
 func _on_StartTimer_timeout():
 	$AsteroidTimer.start()
+	$PowerUpTimer.start()
 	
 func _on_AsteroidTimer_timeout():
-	var ast = asteroid_scene.instance()
-	
+	var ast = asteroid_scene.instance()	
 	var spawn_loc = get_node("SpawnPath/SpawnPathLocation")
 	spawn_loc.offset = rng.randi()
 	ast.position = spawn_loc.position
-	ast.init(rng.randf_range(0.2, 2))
-#
-#	var velocity = Vector2(360, 0)
-#	ast.set_linear_velocity(velocity.rotated(3.14159))
-	#ast.direction = velocity.rotated(3.14159)
-	
+	ast.init(rng.randf_range(0.2, 2))	
 	add_child(ast)	
 
 func _on_Player_shoot(bullet, position, shoot):
@@ -53,3 +49,11 @@ func _on_Player_shoot(bullet, position, shoot):
 
 func _on_ShootTimer_timeout():
 	canShoot = true
+
+func _on_PowerUpTimer_timeout():
+	var spawn_loc = get_node("SpawnPowerUp/SpawnPowerUpLocation")
+	spawn_loc.offset = rng.randi()
+	var pu1 = power_up_scene.instance()
+	pu1.set_player($Player)
+	pu1.position = spawn_loc.position
+	add_child(pu1)

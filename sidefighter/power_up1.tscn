@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://art/powerup01.png" type="Texture" id=1]
+[ext_resource path="res://power_up1.gd" type="Script" id=2]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="power_up1" type="Area2D"]
+scale = Vector2( 0.25, 0.25 )
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -33, -60, 34, -60, 62, -32, 63, 30, 32, 61, -36, 61, -64, 33, -65, -31, -34, -59 )
+
+[node name="LifeTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="DirectionTimer" type="Timer" parent="."]
+wait_time = 2.5
+
+[connection signal="area_entered" from="." to="." method="_on_power_up1_area_entered"]
+[connection signal="timeout" from="LifeTimer" to="." method="_on_LifeTimer_timeout"]
+[connection signal="timeout" from="DirectionTimer" to="." method="_on_DirectionTimer_timeout"]

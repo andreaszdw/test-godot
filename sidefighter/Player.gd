@@ -6,26 +6,20 @@ signal hit(life)
 #var Bullet = preload("res://bullets/Bullet1.tscn")
 export(PackedScene) var bullet1_scene
 
-#var data_file = File.new()
-#if data_file.open("res://data.json", File.READ) != OK:
-#	return
-#var data_text = data_file.get_as_text()
-#data_file.close()
-#var data_parse = JSON.parse(data_text)
-#if data_parse.error != OK:
-#	return
-#var data = data_parse.result
-#$Label.text = data["1"].name
-
-
 var leftDown = false
 
 var screen_size
 
 var life = 1000
 
-var shoot = "level1"
-
+var shoot = 0
+var shoot_max = 3
+var shoot_array = [
+	"level1",
+	"level2",
+	"level3",
+	"level4"
+]
 var shoot_data = ""
 
 func _ready():
@@ -51,7 +45,7 @@ func _ready():
 func _process(delta):
 	if leftDown:
 		if life > 0:
-			emit_signal("shoot", bullet1_scene, position, shoot_data[shoot])
+			emit_signal("shoot", bullet1_scene, position, shoot_data[shoot_array[shoot]])
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -80,13 +74,17 @@ func _input(event):
 	if position.y > height - size.y * 0.5 * scale.y:
 		position.y = height - size.y * 0.5 * scale.y
 
-
 func _on_Player_body_entered(body):
 	life -= body.realLife
 	body.hitted(life, "ship")
 	if life <= 0:
 		death()
 	emit_signal("hit", int(life))
+	
+func increment_shoot():
+	shoot += 1
+	if shoot > shoot_max:
+		shoot = shoot_max	
 
 func death():
 	hide()
