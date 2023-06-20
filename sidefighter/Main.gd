@@ -30,7 +30,7 @@ func _on_AsteroidTimer_timeout():
 	ast.init(rng.randf_range(0.2, 2))
 	
 	var velocity = Vector2(360, 0)
-	ast.linear_velocity = velocity.rotated(3.14159)
+	ast.direction = velocity.rotated(3.14159)
 	
 	add_child(ast)	
 

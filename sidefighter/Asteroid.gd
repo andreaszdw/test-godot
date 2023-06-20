@@ -3,7 +3,11 @@ extends RigidBody2D
 var realLife = 0
 var groundLife = 100
 var startLife = 0
+var direction = 0
 
+func _physics_process(delta):
+	position += direction * delta
+	
 func init(v):
 	startLife = groundLife * v
 	scale(v)
