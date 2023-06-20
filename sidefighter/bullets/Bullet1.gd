@@ -12,7 +12,7 @@ func _process(delta):
 	pass
 	
 func _on_Bullet1_body_entered(body):
-	body.hitted(energy)
+	body.hitted(energy, "bullet")
 	queue_free()
 
 func _on_VisibilityNotifier2D_screen_exited():

@@ -4,9 +4,6 @@ var realLife = 0
 var groundLife = 100
 var startLife = 0
 
-func _ready():
-	$AnimatedSprite.playing = true
-
 func init(v):
 	startLife = groundLife * v
 	scale(v)
@@ -21,9 +18,10 @@ func scale(s):
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
 
-func hitted(h):
+func hitted(h, type):
 	realLife -= h
-	$"../HUD".addScore(h)
+	if type != "ship":
+		$"../HUD".addScore(h)
 	scale(realLife/groundLife)
 	if realLife <= 10:
 		$"../HUD".addScore(startLife)

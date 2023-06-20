@@ -21,6 +21,7 @@ asteroid_scene = ExtResource( 3 )
 one_shot = true
 
 [node name="AsteroidTimer" type="Timer" parent="."]
+wait_time = 2.0
 
 [node name="ShootTimer" type="Timer" parent="."]
 wait_time = 0.3
