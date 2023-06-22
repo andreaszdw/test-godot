@@ -13,12 +13,13 @@ var screen_size
 var life = 1000
 
 var shoot = 0
-var shoot_max = 3
+var shoot_max = 4
 var shoot_array = [
 	"level1",
 	"level2",
 	"level3",
-	"level4"
+	"level4",
+	"level5"
 ]
 var shoot_data = ""
 
