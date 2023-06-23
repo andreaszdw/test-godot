@@ -9,6 +9,7 @@ var canShoot = true
 func new_game():
 	$StartTimer.start()
 	$ShootTimer.wait_time = 0.1
+	$StarsBackground/ParallaxLayer/Sprite2.texture = load("res://art/background/Green Nebula/Green Nebula 5 - 1024x1024.png")
 	
 func _ready():
 	rng.randomize()
