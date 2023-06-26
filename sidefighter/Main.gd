@@ -2,6 +2,7 @@ extends Node
 
 export(PackedScene) var asteroid_scene
 export(PackedScene) var power_up_scene
+export(PackedScene) var enemy1_scene
 
 var rng = RandomNumberGenerator.new()
 var canShoot = true
@@ -23,6 +24,7 @@ func _process(delta):
 func _on_StartTimer_timeout():
 	$AsteroidTimer.start()
 	$PowerUpTimer.start()
+	$EnemyTimer.start()
 	
 func _on_AsteroidTimer_timeout():
 	var ast = asteroid_scene.instance()	
@@ -58,3 +60,13 @@ func _on_PowerUpTimer_timeout():
 	pu1.set_player($Player)
 	pu1.position = spawn_loc.position
 	add_child(pu1)
+
+
+func _on_EnemyTimer_timeout():
+	var enemy = enemy1_scene.instance()
+	var spawn_loc = get_node("SpawnPath/SpawnPathLocation")
+	spawn_loc.offset = rng.randi()
+	enemy.position = spawn_loc.position
+	enemy.init(rng.randf_range(0.2, 2))	
+	add_child(enemy)	
+	
