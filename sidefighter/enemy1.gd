@@ -1,12 +1,18 @@
-extends RigidBody2D
+extends Area2D
 
-
-func init(v):
-	var velocity = Vector2(360, 0)
-	set_linear_velocity(velocity.rotated(3.14159) / v)
+var energy = 50
+var speed = 100
+var direction = Vector2(-1, 0)
+	
+func _physics_process(delta):
+	position += direction * speed * delta
 
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
 
 func hitted(h, type):
 	print("I'm hitted")
+
+
+func _on_enemy1_area_entered(area):
+	print("enemy ", area.energy)

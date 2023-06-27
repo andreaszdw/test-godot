@@ -10,7 +10,7 @@ var leftDown = false
 
 var screen_size
 
-var life = 1000
+var energy = 1000
 
 var shoot = 0
 var shoot_max = 4
@@ -45,7 +45,7 @@ func _ready():
 # warning-ignore:unused_argument
 func _process(delta):
 	if leftDown:
-		if life > 0:
+		if energy > 0:
 			emit_signal("shoot", bullet1_scene, position, shoot_data[shoot_array[shoot]])
 
 func _input(event):
@@ -76,11 +76,11 @@ func _input(event):
 		position.y = height - size.y * 0.5 * scale.y
 
 func _on_Player_body_entered(body):
-	life -= body.realLife
-	body.hitted(life, "ship")
-	if life <= 0:
+	energy -= body.realLife
+	body.hitted(energy, "ship")
+	if energy <= 0:
 		death()
-	emit_signal("hit", int(life))
+	emit_signal("hit", int(energy))
 	
 func increment_shoot():
 	shoot += 1
@@ -90,3 +90,7 @@ func increment_shoot():
 func death():
 	hide()
 	$CollisionPolygon2D.set_deferred("disabled", true)
+
+
+func _on_Player_area_entered(area):
+	print("player ", area.energy)

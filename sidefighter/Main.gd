@@ -67,6 +67,6 @@ func _on_EnemyTimer_timeout():
 	var spawn_loc = get_node("SpawnPath/SpawnPathLocation")
 	spawn_loc.offset = rng.randi()
 	enemy.position = spawn_loc.position
-	enemy.init(rng.randf_range(0.2, 2))	
+	#enemy.init(rng.randf_range(0.2, 2))	
 	add_child(enemy)	
 	
