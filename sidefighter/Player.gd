@@ -13,7 +13,6 @@ var screen_size
 var energy = 1000
 
 var shoot = 0
-var shoot_max = 4
 var shoot_array = [
 	"level1",
 	"level2",
@@ -21,6 +20,7 @@ var shoot_array = [
 	"level4",
 	"level5"
 ]
+
 var shoot_data = ""
 
 func _ready():
@@ -84,8 +84,8 @@ func _on_Player_body_entered(body):
 	
 func increment_shoot():
 	shoot += 1
-	if shoot > shoot_max:
-		shoot = shoot_max	
+	if shoot > (shoot_array.size() - 1):
+		shoot = shoot_array.size() - 1
 
 func death():
 	hide()
