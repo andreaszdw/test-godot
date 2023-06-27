@@ -1,6 +1,6 @@
 extends Area2D
 
-var energy = 50
+var energy = 100
 var speed = 100
 var direction = Vector2(-1, 0)
 	
@@ -10,9 +10,6 @@ func _physics_process(delta):
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
 
-func hitted(h, type):
-	print("I'm hitted")
-
-
 func _on_enemy1_area_entered(area):
-	print("enemy ", area.energy)
+	energy -= area.energy
+	
