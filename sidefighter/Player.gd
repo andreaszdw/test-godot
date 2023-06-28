@@ -3,10 +3,10 @@ extends Area2D
 signal shoot(bullet, position, shoot)
 signal hit(life)
 
-#var Bullet = preload("res://bullets/Bullet1.tscn")
 export(PackedScene) var bullet1_scene
 
-var area_name = "player"
+var id = "player"
+
 var leftDown = false
 
 var screen_size
@@ -76,9 +76,16 @@ func _input(event):
 	if position.y > height - size.y * 0.5 * scale.y:
 		position.y = height - size.y * 0.5 * scale.y
 
-func _on_Player_body_entered(body):
-	energy -= body.realLife
-	body.hitted(energy, "ship")
+func _on_Player_body_entered(object):
+	on_entered(object)
+	
+func _on_Player_area_entered(object):
+	on_entered(object)
+
+func on_entered(object):	
+	var old_object_energy = object.energy
+	object.hitted(self)	
+	energy -= old_object_energy
 	if energy <= 0:
 		death()
 	emit_signal("hit", int(energy))
@@ -91,8 +98,3 @@ func increment_shoot():
 func death():
 	hide()
 	$CollisionPolygon2D.set_deferred("disabled", true)
-
-func _on_Player_area_entered(area):
-	var an = area.area_name
-	if an == "enemy":
-		energy -= area.energy	
