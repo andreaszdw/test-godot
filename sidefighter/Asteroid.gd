@@ -1,14 +1,14 @@
 extends RigidBody2D
 
-var realLife = 0
-var groundLife = 100
-var startLife = 0
+var energy = 100
+var value = 100
+var ground = 100
 
 func _physics_process(delta):
 	pass
 	
 func init(v):
-	startLife = groundLife * v
+	value = ground * v
 	scale(v)
 	var velocity = Vector2(360, 0)
 	set_linear_velocity(velocity.rotated(3.14159) / v)
@@ -20,16 +20,16 @@ func scale(s):
 	$AnimatedSprite.scale.y = s
 	$CollisionShape2D.scale.x = s
 	$CollisionShape2D.scale.y = s
-	realLife = groundLife * s
+	energy = ground * s
 
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
 
-func hitted(h, type):
-	realLife -= h
-	if type != "ship":
-		$"../HUD".addScore(h)
-	scale(realLife/groundLife)
-	if realLife <= 10:
-		$"../HUD".addScore(startLife)
+func hitted(object):
+	energy -= object.energy
+	if object.id != "player":
+		$"../HUD".addScore(object.energy)
+	scale(energy/ground)
+	if energy <= 20:
+		$"../HUD".addScore(value)
 		queue_free()
