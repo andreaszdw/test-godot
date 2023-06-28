@@ -6,6 +6,7 @@ signal hit(life)
 #var Bullet = preload("res://bullets/Bullet1.tscn")
 export(PackedScene) var bullet1_scene
 
+var area_name = "player"
 var leftDown = false
 
 var screen_size
@@ -91,6 +92,7 @@ func death():
 	hide()
 	$CollisionPolygon2D.set_deferred("disabled", true)
 
-
 func _on_Player_area_entered(area):
-	print("player ", area.energy)
+	var an = area.area_name
+	if an == "enemy":
+		energy -= area.energy	

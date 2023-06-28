@@ -3,6 +3,8 @@ extends Area2D
 var energy = 100
 var speed = 100
 var direction = Vector2(-1, 0)
+
+var area_name = "enemy"
 	
 func _physics_process(delta):
 	position += direction * speed * delta
@@ -12,4 +14,5 @@ func _on_VisibilityNotifier2D_screen_exited():
 
 func _on_enemy1_area_entered(area):
 	energy -= area.energy
-	
+	if energy <= 0:
+		queue_free()

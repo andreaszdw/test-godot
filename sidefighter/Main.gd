@@ -38,6 +38,7 @@ func _on_Player_shoot(bullet, position, shoot):
 	if canShoot:		
 		for i in shoot.bullets:
 			var b = bullet.instance()
+			b.set_Player($Player)
 			add_child(b)
 			b.position = position
 			b.position.x += i.x
@@ -57,7 +58,7 @@ func _on_PowerUpTimer_timeout():
 	var spawn_loc = get_node("SpawnPowerUp/SpawnPowerUpLocation")
 	spawn_loc.offset = rng.randi()
 	var pu1 = power_up_scene.instance()
-	pu1.set_player($Player)
+	pu1.set_Player($Player)
 	pu1.position = spawn_loc.position
 	add_child(pu1)
 

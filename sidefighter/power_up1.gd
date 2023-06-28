@@ -5,8 +5,8 @@ var direction = Vector2.ZERO
 var speed = 100
 var rng = RandomNumberGenerator.new()
 var energy = 0
-
-func set_player(p):
+var area_name = "power_up"
+func set_Player(p):
 	player = p
 	
 func _ready():
