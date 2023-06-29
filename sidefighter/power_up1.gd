@@ -16,7 +16,7 @@ func _ready():
 func _physics_process(delta):
 	position += direction * speed * delta
 	
-func _process(delta):
+func _process(_delta):
 	var vp = get_viewport().get_visible_rect().size
 
 	if position.x < 50:

@@ -24,7 +24,7 @@ func _on_Bullet1_area_entered(area):
 	area.hitted(self)		
 	queue_free()
 	
-func hitted(object):
+func hitted(_object):
 	pass
 
 func _on_VisibilityNotifier2D_screen_exited():

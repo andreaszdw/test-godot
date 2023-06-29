@@ -51,6 +51,7 @@ script = ExtResource( 2 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 3, 3 )
 frames = SubResource( 1 )
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -63,6 +64,5 @@ one_shot = true
 [node name="DirectionTimer" type="Timer" parent="."]
 wait_time = 2.5
 
-[connection signal="area_entered" from="." to="." method="_on_power_up1_area_entered"]
 [connection signal="timeout" from="LifeTimer" to="." method="_on_LifeTimer_timeout"]
 [connection signal="timeout" from="DirectionTimer" to="." method="_on_DirectionTimer_timeout"]

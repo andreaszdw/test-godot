@@ -3,9 +3,6 @@ extends RigidBody2D
 var energy = 100
 var value = 100
 var ground = 100
-
-func _physics_process(delta):
-	pass
 	
 func init(v):
 	value = ground * v
