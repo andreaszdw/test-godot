@@ -7,7 +7,16 @@ export(PackedScene) var enemy1_scene
 var rng = RandomNumberGenerator.new()
 var canShoot = true
 
+func game_over():
+	$AsteroidTimer.stop()
+	$PowerUpTimer.stop()
+	$EnemyTimer.stop()
+	
 func new_game():
+	get_tree().call_group("asteroids", "queue_free")
+	get_tree().call_group("enemies", "queue_free")
+	get_tree().call_group("bullets", "queue_free")
+	$Player.start()
 	$StartTimer.start()
 	$ShootTimer.wait_time = 0.1
 	$StarsBackground/ParallaxLayer/Sprite2.texture = load("res://art/background/Green Nebula/Green Nebula 5 - 1024x1024.png")

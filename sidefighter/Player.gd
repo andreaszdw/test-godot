@@ -24,6 +24,10 @@ var shoot_array = [
 
 var shoot_data = ""
 
+func start():
+	show()
+	$CollisionPolygon2D.disabled = false
+	
 func _ready():
 	# read json file
 	var json_file = File.new()

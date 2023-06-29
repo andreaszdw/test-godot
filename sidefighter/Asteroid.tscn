@@ -159,7 +159,7 @@ animations = [ {
 [sub_resource type="CircleShape2D" id=32]
 radius = 41.5933
 
-[node name="Asteroid" type="RigidBody2D"]
+[node name="Asteroid" type="RigidBody2D" groups=["asteroids"]]
 z_index = 98
 gravity_scale = 0.0
 script = ExtResource( 2 )
@@ -169,7 +169,7 @@ __meta__ = {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 31 )
-frame = 18
+frame = 23
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

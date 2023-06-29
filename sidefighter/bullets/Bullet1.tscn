@@ -7,7 +7,7 @@
 radius = 5.0
 height = 16.0
 
-[node name="Bullet1" type="Area2D"]
+[node name="Bullet1" type="Area2D" groups=["bullets"]]
 z_index = 99
 z_as_relative = false
 collision_mask = 0
