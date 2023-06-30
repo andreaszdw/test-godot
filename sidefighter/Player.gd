@@ -102,3 +102,4 @@ func increment_shoot():
 func death():
 	hide()
 	$CollisionPolygon2D.set_deferred("disabled", true)
+	get_parent().game_over()
