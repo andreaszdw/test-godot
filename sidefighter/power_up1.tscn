@@ -42,7 +42,7 @@ animations = [ {
 } ]
 
 [sub_resource type="CircleShape2D" id=8]
-radius = 36.0
+radius = 64.1249
 
 [node name="power_up1" type="Area2D"]
 scale = Vector2( 0.25, 0.25 )
@@ -51,18 +51,27 @@ script = ExtResource( 2 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 3, 3 )
 frames = SubResource( 1 )
-frame = 1
+frame = 5
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 8 )
 
 [node name="LifeTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 13.0
 one_shot = true
 
 [node name="DirectionTimer" type="Timer" parent="."]
 wait_time = 2.5
 
+[node name="WarningTimer" type="Timer" parent="."]
+wait_time = 9.0
+one_shot = true
+
+[node name="BlinkTimer" type="Timer" parent="."]
+wait_time = 0.2
+
 [connection signal="timeout" from="LifeTimer" to="." method="_on_LifeTimer_timeout"]
 [connection signal="timeout" from="DirectionTimer" to="." method="_on_DirectionTimer_timeout"]
+[connection signal="timeout" from="WarningTimer" to="." method="_on_WarningTimer_timeout"]
+[connection signal="timeout" from="BlinkTimer" to="." method="_on_BlinkTimer_timeout"]

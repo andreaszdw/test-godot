@@ -9,6 +9,7 @@ var rng = RandomNumberGenerator.new()
 	
 func _ready():
 	$LifeTimer.start()
+	$WarningTimer.start()
 	$DirectionTimer.start()
 	rng.randomize()
 	direction = Vector2(rng.randf_range(-1, 1), rng.randf_range(-1, 1))
@@ -39,3 +40,14 @@ func hitted(object):
 	if object.id == "player":
 		object.increment_shoot()
 		queue_free()
+
+
+func _on_WarningTimer_timeout():
+	$BlinkTimer.start()
+
+
+func _on_BlinkTimer_timeout():
+	if modulate.a == 1:
+		modulate.a = 0.2
+	else:
+		modulate.a = 1
