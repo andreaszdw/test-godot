@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/mixkit-alien-blast-in-the-earth-2546.mp3-06ee73189d25fbdf7ca93da282bcc741.mp3str"
+
+[deps]
+
+source_file="res://art/sounds/mixkit-alien-blast-in-the-earth-2546.mp3"
+dest_files=[ "res://.import/mixkit-alien-blast-in-the-earth-2546.mp3-06ee73189d25fbdf7ca93da282bcc741.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

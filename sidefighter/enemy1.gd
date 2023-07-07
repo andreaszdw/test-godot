@@ -18,5 +18,7 @@ func hitted(object):
 	if object.id != "player":
 		$"../HUD".addScore(object.energy)
 	if energy <= 0:
+		print("play")
+		$DieSound.play()
 		$"../HUD".addScore(value)
 		queue_free()

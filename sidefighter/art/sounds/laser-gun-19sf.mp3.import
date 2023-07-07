@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/laser-gun-19sf.mp3-2942e5fb9e8b1ca2a89f2dfdbeecb4bf.mp3str"
+
+[deps]
+
+source_file="res://art/sounds/laser-gun-19sf.mp3"
+dest_files=[ "res://.import/laser-gun-19sf.mp3-2942e5fb9e8b1ca2a89f2dfdbeecb4bf.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

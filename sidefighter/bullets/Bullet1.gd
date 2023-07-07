@@ -4,6 +4,9 @@ var id = "player_bullet"
 var energy = 50
 var speed = 1000
 var direction = Vector2(1, 0)
+
+func _ready():
+	$LaserSound.play()
 	
 func _physics_process(delta):
 	position += direction * speed * delta
