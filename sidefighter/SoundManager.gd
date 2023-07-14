@@ -4,5 +4,6 @@ func _ready():
 	pass
 
 func play(sound):
-	print(sound)
-	get_node("beam").play()
+	var ns = get_node("beam")
+	
+	$AudioStreamPlayer.play

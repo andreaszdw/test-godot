@@ -17,6 +17,7 @@ config/icon="res://art/ship.png"
 [autoload]
 
 SoundManager="*res://SoundManager.tscn"
+StreamPlayer="*res://StreamPlayer.tscn"
 
 [display]
 

@@ -6,7 +6,11 @@ var speed = 1000
 var direction = Vector2(1, 0)
 
 func _ready():
-	SoundManager.play("beam")
+	print("ready")
+	var sound = AudioStreamPlayer.new()
+	sound.stream = load("res://art/sounds/beam-8-43831.mp3")
+	sound.play()
+	
 	
 func _physics_process(delta):
 	position += direction * speed * delta
