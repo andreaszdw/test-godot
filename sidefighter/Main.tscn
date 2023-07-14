@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Main.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://hud.tscn" type="PackedScene" id=5]
 [ext_resource path="res://power_up1.tscn" type="PackedScene" id=6]
 [ext_resource path="res://enemy1.tscn" type="PackedScene" id=7]
+[ext_resource path="res://SoundManager.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Curve2D" id=3]
 _data = {
@@ -58,6 +59,8 @@ curve = SubResource( 4 )
 
 [node name="SpawnPowerUpLocation" type="PathFollow2D" parent="SpawnPowerUp"]
 position = Vector2( 896, 88 )
+
+[node name="SoundManager" parent="." instance=ExtResource( 8 )]
 
 [connection signal="hit" from="Player" to="HUD" method="_on_Player_hit"]
 [connection signal="shoot" from="Player" to="." method="_on_Player_shoot"]

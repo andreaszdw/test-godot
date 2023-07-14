@@ -14,6 +14,10 @@ config/name="sidefighter"
 run/main_scene="res://Main.tscn"
 config/icon="res://art/ship.png"
 
+[autoload]
+
+SoundManager="*res://SoundManager.tscn"
+
 [display]
 
 window/size/resizable=false

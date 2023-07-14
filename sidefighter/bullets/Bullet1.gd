@@ -6,7 +6,7 @@ var speed = 1000
 var direction = Vector2(1, 0)
 
 func _ready():
-	pass
+	SoundManager.play("beam")
 	
 func _physics_process(delta):
 	position += direction * speed * delta
