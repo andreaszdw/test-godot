@@ -11,5 +11,5 @@ dest_files=[ "res://.import/laser-gun-19sf.mp3-2942e5fb9e8b1ca2a89f2dfdbeecb4bf.
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
