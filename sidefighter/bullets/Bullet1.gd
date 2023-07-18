@@ -1,7 +1,5 @@
 extends Area2D
 
-export(PackedScene) var beam_sound
-
 var id = "player_bullet"
 var energy = 50
 var speed = 1000
@@ -9,11 +7,7 @@ var direction = Vector2(1, 0)
 
 func _ready():
 	print("ready")
-	#var sound = AudioStreamPlayer.new()
-	#sound.stream = load("res://art/sounds/beam-8-43831.mp3")
-	#sound.play()
-	var beam = beam_sound.instance()
-	beam.play()
+	SoundManager.play_beam()
 	
 	
 func _physics_process(delta):

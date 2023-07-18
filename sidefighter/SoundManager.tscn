@@ -1,10 +1,6 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://art/sounds/beam-8-43831.mp3" type="AudioStream" id=1]
 [ext_resource path="res://SoundManager.gd" type="Script" id=2]
 
 [node name="SoundManager" type="Node"]
 script = ExtResource( 2 )
-
-[node name="beam" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 1 )

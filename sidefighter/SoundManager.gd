@@ -1,9 +1,7 @@
 extends Node
 
-func _ready():
-	pass
-
-func play(sound):
-	var ns = get_node("beam")
+func play_beam():
+	print("beam playing")
+	var sound = preload("res://BeamSound.tscn").instance()
+	sound.play()
 	
-	$AudioStreamPlayer.play
