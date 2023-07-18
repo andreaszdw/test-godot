@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Main.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://enemy1.tscn" type="PackedScene" id=7]
 [ext_resource path="res://SoundManager.tscn" type="PackedScene" id=8]
 [ext_resource path="res://StreamPlayer.tscn" type="PackedScene" id=9]
+[ext_resource path="res://art/sounds/beam-8-43831.mp3" type="AudioStream" id=10]
 
 [sub_resource type="Curve2D" id=3]
 _data = {
@@ -64,6 +65,7 @@ position = Vector2( 896, 88 )
 [node name="SoundManager" parent="." instance=ExtResource( 8 )]
 
 [node name="StreamPlayer" parent="." instance=ExtResource( 9 )]
+stream = ExtResource( 10 )
 
 [connection signal="hit" from="Player" to="HUD" method="_on_Player_hit"]
 [connection signal="shoot" from="Player" to="." method="_on_Player_shoot"]
