@@ -8,9 +8,16 @@ extends AudioStreamPlayer2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print("beam")
-
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print("beam _process")
+	if not is_playing():
+		print("p")
+		queue_free()
+	
+func _notification(what):
+	if what == NOTIFICATION_PREDELETE:
+		print("Destroying ", name)
+		
+		

@@ -3,6 +3,7 @@ extends Node
 export(PackedScene) var asteroid_scene
 export(PackedScene) var power_up_scene
 export(PackedScene) var enemy1_scene
+export(PackedScene) var beam_scene
 
 var rng = RandomNumberGenerator.new()
 var canShoot = true
@@ -54,6 +55,10 @@ func _on_Player_shoot(bullet, position, shoot):
 			b.energy = i.energy
 			var dir = Vector2(i.direction[0], i.direction[1])
 			b.direction = dir.normalized()
+			# play sound
+			var beam = beam_scene.instance()
+			beam.play()
+			add_child(beam)
 			
 		$ShootTimer.start()
 		canShoot = false
