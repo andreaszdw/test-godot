@@ -7,6 +7,7 @@ export(PackedScene) var beam_scene
 
 var rng = RandomNumberGenerator.new()
 var canShoot = true
+var sound = true
 
 func game_over():
 	$AsteroidTimer.stop()
@@ -55,10 +56,12 @@ func _on_Player_shoot(bullet, position, shoot):
 			b.energy = i.energy
 			var dir = Vector2(i.direction[0], i.direction[1])
 			b.direction = dir.normalized()
-			# play sound
-			var beam = beam_scene.instance()
-			beam.play()
-			add_child(beam)
+			
+			if sound:
+				# play sound
+				var beam = beam_scene.instance()
+				beam.play()
+				add_child(beam)
 			
 		$ShootTimer.start()
 		canShoot = false
