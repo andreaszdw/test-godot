@@ -7,7 +7,7 @@ export(PackedScene) var beam_scene
 
 var rng = RandomNumberGenerator.new()
 var canShoot = true
-var sound = true
+var sound = false# Create new ConfigFile object.
 
 func game_over():
 	$AsteroidTimer.stop()
@@ -23,6 +23,16 @@ func new_game():
 	$ShootTimer.wait_time = 0.1
 	
 func _ready():
+	var config = ConfigFile.new()
+
+	# Store some values.
+	config.set_value("Player1", "player_name", "Steve")
+	config.set_value("Player1", "best_score", 10)
+	config.set_value("Player2", "player_name", "V3geta")
+	config.set_value("Player2", "best_score", 9001)
+
+	# Save it to a file (overwrite if already exists).
+	config.save("user://scores.cfg")
 	rng.randomize()
 	new_game()
 
