@@ -24,6 +24,10 @@ var shoot_array = [
 
 var shoot_data = ""
 
+var direction = Vector2.ZERO
+var mouse_position = Vector2.ZERO
+var speed = 400
+
 func start():
 	show()
 	$CollisionPolygon2D.disabled = false
@@ -49,13 +53,16 @@ func _ready():
 	
 # warning-ignore:unused_argument
 func _process(delta):
+	direction = self.position - mouse_position
+	if direction.length() > 5:
+		self.position -= direction.normalized() * delta * speed
 	if leftDown:
 		if energy > 0:
 			emit_signal("shoot", bullet1_scene, position, shoot_data[shoot_array[shoot]])
 
 func _input(event):
 	if event is InputEventMouseMotion:
-		position = event.position
+		mouse_position = event.position		
 		
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT:

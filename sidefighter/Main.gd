@@ -23,6 +23,7 @@ func new_game():
 	$ShootTimer.wait_time = 0.1
 	
 func _ready():
+	#Input.set_custom_mouse_cursor()
 	var config = ConfigFile.new()
 
 	# Store some values.
@@ -38,6 +39,7 @@ func _ready():
 
 # warning-ignore:unused_argument
 func _process(delta):
+	$DirectionCursor.rotation_degrees=rad2deg($Player.direction.angle())
 	if Input.is_action_pressed("fullscreen"):
 		OS.set_window_fullscreen(!OS.window_fullscreen)
 
