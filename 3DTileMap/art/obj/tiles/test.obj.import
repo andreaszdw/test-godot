@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/test.obj-09d30eb1a5f49e2d65d1cb6d69061983.mesh"
+
+[deps]
+
+files=[ "res://.import/test.obj-09d30eb1a5f49e2d65d1cb6d69061983.mesh" ]
+
+source_file="res://art/obj/tiles/test.obj"
+dest_files=[ "res://.import/test.obj-09d30eb1a5f49e2d65d1cb6d69061983.mesh", "res://.import/test.obj-09d30eb1a5f49e2d65d1cb6d69061983.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286
