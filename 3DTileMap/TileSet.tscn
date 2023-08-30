@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://art/obj/tiles/water.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://art/obj/tiles/grass.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://art/obj/tiles/stone.obj" type="ArrayMesh" id=3]
+
+[node name="TileSet" type="Spatial"]
+
+[node name="grass" type="MeshInstance" parent="."]
+mesh = ExtResource( 2 )
+
+[node name="stone" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.22258, 0, 0 )
+mesh = ExtResource( 3 )
+
+[node name="water" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.13097 )
+mesh = ExtResource( 1 )
