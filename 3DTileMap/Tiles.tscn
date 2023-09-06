@@ -1,16 +1,47 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://art/obj/tiles/stone.obj" type="ArrayMesh" id=1]
-[ext_resource path="res://art/obj/tiles/grass.obj" type="ArrayMesh" id=2]
-[ext_resource path="res://art/obj/tiles/water.obj" type="ArrayMesh" id=3]
+[ext_resource path="res://art/obj/tiles/grass_slope.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://art/obj/tiles/new/grass.obj" type="ArrayMesh" id=2]
+
+[sub_resource type="NavigationMesh" id=1]
+vertices = PoolVector3Array( -2, 1.25, -2, -2, 1.25, 2, 2, 1.5, 2, 2, 1.5, -2 )
+polygons = [ PoolIntArray( 3, 2, 0 ), PoolIntArray( 0, 2, 1 ) ]
+agent_radius = 0.0
+
+[sub_resource type="ConvexPolygonShape" id=2]
+points = PoolVector3Array( -2, 0, -2, -2, 0, 2, -2, 0.699961, -2, 2, 0, -2, -2, 0.699961, 2, 2, 0, 2, -1.30031, 1.09992, -2, 2, 1.2, -2, -1.30031, 1.09992, 2, 2, 1.2, 2, -1.10023, 1.2, -2, -1.10023, 1.2, 2 )
+
+[sub_resource type="NavigationMesh" id=3]
+vertices = PoolVector3Array( -2, 1, -2, -2, 1, 2, 2, 1, 2, 2, 1, -2 )
+polygons = [ PoolIntArray( 3, 2, 0 ), PoolIntArray( 0, 2, 1 ) ]
+agent_radius = 0.0
+
+[sub_resource type="ConvexPolygonShape" id=4]
+points = PoolVector3Array( -2, 0, -2, -2, 0, 2, -2, 0.6, -2, 2, 0, -2, -2, 0.6, 2, 2, 0, 2, 2, 0.6, -2, 2, 0.6, 2 )
 
 [node name="Tiles" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0 )
 
-[node name="grass" type="MeshInstance" parent="."]
-mesh = ExtResource( 2 )
+[node name="gras_slope" type="NavigationMeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0 )
+navmesh = SubResource( 1 )
 
-[node name="stone" type="MeshInstance" parent="."]
+[node name="gras_slope" type="MeshInstance" parent="gras_slope"]
 mesh = ExtResource( 1 )
 
-[node name="water" type="MeshInstance" parent="."]
-mesh = ExtResource( 3 )
+[node name="StaticBody" type="StaticBody" parent="gras_slope/gras_slope"]
+
+[node name="CollisionShape" type="CollisionShape" parent="gras_slope/gras_slope/StaticBody"]
+shape = SubResource( 2 )
+
+[node name="gras" type="NavigationMeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0 )
+navmesh = SubResource( 3 )
+
+[node name="gras" type="MeshInstance" parent="gras"]
+mesh = ExtResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="gras/gras"]
+
+[node name="CollisionShape" type="CollisionShape" parent="gras/gras/StaticBody"]
+shape = SubResource( 4 )

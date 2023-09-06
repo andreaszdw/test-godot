@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/grass_slope.obj-8a07e74dc609c93deaf0271c00d34295.mesh"
+
+[deps]
+
+files=[ "res://.import/grass_slope.obj-8a07e74dc609c93deaf0271c00d34295.mesh" ]
+
+source_file="res://art/obj/tiles/grass_slope.obj"
+dest_files=[ "res://.import/grass_slope.obj-8a07e74dc609c93deaf0271c00d34295.mesh", "res://.import/grass_slope.obj-8a07e74dc609c93deaf0271c00d34295.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

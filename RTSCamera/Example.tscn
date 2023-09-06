@@ -82,9 +82,6 @@ margin_top = 64.0
 margin_right = 960.0
 margin_bottom = 208.0
 script = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 camera_controller_path = NodePath("../../Camera")
 
 [node name="MovementSpeedLabel" type="Label" parent="Control/Panel"]
