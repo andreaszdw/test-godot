@@ -14,6 +14,10 @@ config/name="Rts"
 run/main_scene="res://scenes/TestField.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/height=800
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
