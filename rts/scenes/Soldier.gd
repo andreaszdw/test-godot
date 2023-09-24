@@ -7,14 +7,15 @@ func _ready():
 	pass
 
 func _process(delta):
-	#print((destination-position).length())
-	if (destination-position).length() > 2:
-		var direction = destination - position
-		rotation_degrees = rad2deg((destination - position).angle())
-		$AnimatedSprite.animation = "walk"
-		position += direction.normalized() * speed * delta
-	else:
-		$AnimatedSprite.animation = "stand"
+	pass
+#	#print((destination-position).length())
+#	if (destination-position).length() > 2:
+#		var direction = destination - position
+#		rotation_degrees = rad2deg((destination - position).angle())
+#		$AnimatedSprite.animation = "walk"
+#		position += direction.normalized() * speed * delta
+#	else:
+#		$AnimatedSprite.animation = "stand"
 	
 func setAnimation(ani):
 	$AnimatedSprite.animation = ani

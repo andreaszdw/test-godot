@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/Soldier.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Level1.gd" type="Script" id=2]
+
+[sub_resource type="NavigationPolygon" id=1]
+vertices = PoolVector2Array( 0, 16, 1264, 24, 1264, 784, 16, 776 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+outlines = [ PoolVector2Array( 0, 16, 1264, 24, 1264, 784, 16, 776 ) ]
+
+[node name="Level1" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="."]
+navpoly = SubResource( 1 )
+
+[node name="Soldier" parent="." instance=ExtResource( 1 )]
+position = Vector2( 312, 232 )
