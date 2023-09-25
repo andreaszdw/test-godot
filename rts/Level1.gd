@@ -3,7 +3,7 @@ extends Node2D
 var path = []
 var map 
 
-onready var soldier = $Soldier
+onready var soldier = $Infantry
 
 func _ready():
 	call_deferred("setup_navserver")
@@ -13,7 +13,6 @@ func _process(delta):
 	move_along_path(walk_distance)
 	
 func _unhandled_input(event):
-	print("after")
 	if not event is InputEventMouseButton:
 		return
 	_update_navigation_path(soldier.position, get_local_mouse_position())
@@ -38,6 +37,11 @@ func move_along_path(distance):
 	var last_point = soldier.position
 	while path.size():
 		var distance_between_points = last_point.distance_to(path[0])
+		
+		soldier.rotation_degrees = rad2deg((path[0] - position).angle())
+		soldier.setAnimation("walk")
+		
+
 		# The position to move to falls between two points.
 		if distance <= distance_between_points:
 			soldier.position = last_point.linear_interpolate(path[0], distance / distance_between_points)
@@ -48,6 +52,7 @@ func move_along_path(distance):
 		path.remove(0)
 	# The character reached the end of the path.
 	soldier.position = last_point
+	soldier.setAnimation("stand")
 	set_process(false)
 
 
