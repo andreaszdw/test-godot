@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bg1280x768.png-ccc4461c8f0001e594a7306f8f897c97.stex"
+path="res://.import/bgGreen1280x768.jpg-d2033a08e81a38ac40d5e06bdd41df13.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/images/bg1280x768.png"
-dest_files=[ "res://.import/bg1280x768.png-ccc4461c8f0001e594a7306f8f897c97.stex" ]
+source_file="res://art/images/bgGreen1280x768.jpg"
+dest_files=[ "res://.import/bgGreen1280x768.jpg-d2033a08e81a38ac40d5e06bdd41df13.stex" ]
 
 [params]
 
