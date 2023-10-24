@@ -1,0 +1,3 @@
+grün - 268c26
+grau - 656c65
+hellgrau - d4d6d4
