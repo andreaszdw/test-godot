@@ -1,13 +1,14 @@
-extends Camera2D
+extends Node2D
 
+var tilemap
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#set_zoom(Vector2(0.5, 0.5))
-	self.global_position.x = 640
-	print(get_zoom())
-
-
+	var level = load("res://Level1.tscn")
+	tilemap = level.instantiate()
+	
+	add_child(tilemap)
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
