@@ -13,12 +13,18 @@ config_version=5
 config/name="Tilemap-test"
 run/main_scene="res://GameScreen.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
+run/max_fps=1000
 config/icon="res://icon.svg"
+
+[debug]
+
+settings/stdout/print_fps=true
 
 [display]
 
 window/size/viewport_width=1200
 window/size/viewport_height=720
+window/vsync/vsync_mode=0
 
 [rendering]
 
