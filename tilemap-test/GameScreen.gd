@@ -10,18 +10,17 @@ func _ready():
 	var window_size = get_window().get_size()
 	window_width = window_size.x
 	window_height = window_size.y
-	var level = load("res://Level1.tscn")
+	var level = load("res://Level3.tscn")
 	tilemap = level.instantiate()	
 	add_child(tilemap)
-	
+
 	# calculate the max_scroll borders
 	var used_rect = tilemap.get_used_rect()
-	
+
 	max_scroll.x = used_rect.size.x * tilemap.tile_set.tile_size.x
-	max_scroll.y = used_rect.size.y * tilemap.tile_set.tile_size.y	
+	max_scroll.y = used_rect.size.y * tilemap.tile_set.tile_size.y
 	
 func _process(delta):
-	print(Engine.get_frames_per_second())
 	var mouse_pos = get_viewport().get_mouse_position()
 	var scroll = Vector2(0, 0)
 
@@ -66,7 +65,8 @@ func _process(delta):
 
 	if $MapCam.position.y > max_scroll.y:
 		$MapCam.position.y = max_scroll.y
-	
+	pass
+		
 func _input(event):
 	#print(event.as_text())
 	pass

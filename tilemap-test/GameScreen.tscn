@@ -1,10 +1,20 @@
 [gd_scene load_steps=3 format=3 uid="uid://ck2hinwo0vda2"]
 
 [ext_resource type="Script" path="res://GameScreen.gd" id="1_fhhow"]
-[ext_resource type="Script" path="res://MapCam.gd" id="2_s55jv"]
+
+[sub_resource type="GDScript" id="GDScript_xqx58"]
+script/source = "extends Camera2D
+
+func _ready():
+	pass
+	
+func _process(delta):
+	pass
+	
+"
 
 [node name="GameScreen" type="Node2D"]
 script = ExtResource("1_fhhow")
 
 [node name="MapCam" type="Camera2D" parent="."]
-script = ExtResource("2_s55jv")
+script = SubResource("GDScript_xqx58")
