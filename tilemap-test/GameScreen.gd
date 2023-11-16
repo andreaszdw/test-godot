@@ -22,6 +22,7 @@ func _ready():
 	
 func _process(delta):
 	var mouse_pos = get_viewport().get_mouse_position()
+	
 	var scroll = Vector2(0, 0)
 
 	# scrolling x, faster and slower
@@ -30,12 +31,20 @@ func _process(delta):
 
 	if mouse_pos.x < 15 and mouse_pos.x >= 0:
 		scroll.x = -scroll_speed * 3 * delta
+	
+	if mouse_pos.x < 0:
+		scroll.x = 0
+		scroll.y = 0
 
 	if mouse_pos.x > window_width - 40:
 		scroll.x = scroll_speed * delta
 
 	if mouse_pos.x > window_width - 15 and mouse_pos.x <= window_width:	
 		scroll.x = scroll_speed * 3 * delta
+		
+	if mouse_pos.x > window_width:
+		scroll.x = 0
+		scroll.y = 0
 
 	# scrolling y, faster and slower
 	if mouse_pos.y < 40:
@@ -43,13 +52,21 @@ func _process(delta):
 
 	if mouse_pos.y < 15 and mouse_pos.y >= 0:
 		scroll.y = -scroll_speed * delta
+		
+	if mouse_pos.y < 0:
+		scroll.x = 0
+		scroll.y = 0
 
 	if mouse_pos.y > window_height - 40:
 		scroll.y = scroll_speed * 3 * delta
 
 	if mouse_pos.y > window_height - 15 and mouse_pos.y <= window_height:
 		scroll.y = scroll_speed * delta
-
+		
+	if mouse_pos.y > window_height:
+		scroll.x = 0
+		scroll.y = 0
+		
 	# scroll it
 	$MapCam.position += scroll	
 
@@ -65,8 +82,6 @@ func _process(delta):
 
 	if $MapCam.position.y > max_scroll.y:
 		$MapCam.position.y = max_scroll.y
-	pass
-		
+	
 func _input(event):
-	#print(event.as_text())
 	pass
