@@ -1,4 +1,5 @@
---grün - 268c26
+grün - 268c26
 grau - 656c65
 hellgrau - d4d6d4
-blau -187bed
+blau - 187bed
+dunkelblau - 0e6092

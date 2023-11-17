@@ -18,7 +18,7 @@ func _ready():
 	var window_size = get_window().get_size()
 	window_width = window_size.x
 	window_height = window_size.y
-	var level = load("res://Level1.tscn")
+	var level = load("res://Level4.tscn")
 	tilemap = level.instantiate()	
 	add_child(tilemap)
 
