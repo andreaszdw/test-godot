@@ -5,12 +5,20 @@ var scroll_speed = 200
 var window_width
 var window_height
 var max_scroll = Vector2(0, 0)
+var zoom = 0
+var min_zoom = 0.2
+var max_zoom = 2.5
+var zoom_speed = 5
+var dragging_start_pos = Vector2(0, 0)
+var dragging_event_pos = Vector2(0, 0)
+var dragging_screen_start_pos = Vector2(0, 0)
+var dragging = false
 
 func _ready():
 	var window_size = get_window().get_size()
 	window_width = window_size.x
 	window_height = window_size.y
-	var level = load("res://Level3.tscn")
+	var level = load("res://Level1.tscn")
 	tilemap = level.instantiate()	
 	add_child(tilemap)
 
@@ -66,6 +74,22 @@ func _process(delta):
 	if mouse_pos.y > window_height:
 		scroll.x = 0
 		scroll.y = 0
+	
+	# dragging
+	if dragging:
+		if dragging_event_pos != Vector2(0, 0):
+			var tmpDrag = dragging_start_pos - dragging_event_pos
+			$MapCam.position = tmpDrag / $MapCam.zoom + dragging_screen_start_pos
+	
+	# zooming
+	var tmpZoom = $MapCam.zoom + Vector2(zoom, zoom) * delta
+	if tmpZoom.x < min_zoom:
+		tmpZoom = Vector2(min_zoom, min_zoom)
+	if tmpZoom.x > max_zoom:
+		tmpZoom = Vector2(max_zoom, max_zoom)
+		
+	$MapCam.zoom = tmpZoom
+	zoom = 0
 		
 	# scroll it
 	$MapCam.position += scroll	
@@ -84,4 +108,21 @@ func _process(delta):
 		$MapCam.position.y = max_scroll.y
 	
 func _input(event):
-	pass
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
+			zoom = zoom_speed
+		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+			zoom = -zoom_speed
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			if not dragging and event.pressed:
+				dragging_start_pos = event.position
+				dragging_screen_start_pos = $MapCam.position
+				dragging = true
+			if dragging and not event.pressed:
+				dragging_event_pos = Vector2(0, 0)
+				dragging = false
+		
+	if event is InputEventMouseMotion:
+		if dragging:
+			dragging_event_pos = event.position
+			
