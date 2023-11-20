@@ -3,3 +3,4 @@ grau - 656c65
 hellgrau - d4d6d4
 blau - 187bed
 dunkelblau - 0e6092
+sand - eda33b
