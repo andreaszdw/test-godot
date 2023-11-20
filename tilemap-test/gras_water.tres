@@ -1,0 +1,103 @@
+[gd_resource type="TileSet" load_steps=13 format=3 uid="uid://g5hd5cqd0o1c"]
+
+[ext_resource type="Texture2D" uid="uid://dp3as65pbmd3p" path="res://art/tiles/water_gras.png" id="1_vstug"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_uraod"]
+vertices = PackedVector2Array(-25.5, -32, 32, 22, 32, 32, -32, 32, -32, -32)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-25.5, -32, 32, 22, 32, 32, -32, 32, -32, -32)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_lgg2o"]
+vertices = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_fitse"]
+vertices = PackedVector2Array(32, -32, 32, 32, -32, 32, -32, 22.5, 23, -32)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(23, -32, -32, 22.5, -32, 32, 32, 32, 32, -32)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_r7y3h"]
+vertices = PackedVector2Array(-32, -32, 32, -32, 32, 32, 23, 32, -32, -23.5)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-32, -32, 32, -32, 32, 32, 23, 32, -32, -23.5)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_w314f"]
+vertices = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_vdm4a"]
+vertices = PackedVector2Array(-32, -32, 32, -32, 32, -26.5, -22, 32, -32, 32)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-32, -32, 32, -32, 32, -26.5, -22, 32, -32, 32)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_vccje"]
+vertices = PackedVector2Array(-32, -32, -23, -32, -24, 32, -32, 32)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-32, -32, -23, -32, -24, 32, -32, 32)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_t1g0w"]
+vertices = PackedVector2Array(32, -32, 32, 32, 23.5, 32, 23.5, -32)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(23.5, -32, 23.5, 32, 32, 32, 32, -32)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_2wfty"]
+vertices = PackedVector2Array(-32, 23, 32, 23.5, 32, 32, -32, 32)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-32, 23, 32, 23.5, 32, 32, -32, 32)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_607l8"]
+vertices = PackedVector2Array(32, -32, 32, -24, -32, -24, -32, -32)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-32, -32, -32, -24, 32, -24, 32, -32)])
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_14je3"]
+resource_name = "gras_water"
+texture = ExtResource("1_vstug")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_uraod")
+1:0/0 = 0
+1:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_fitse")
+2:0/0 = 0
+2:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_r7y3h")
+3:0/0 = 0
+3:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_vdm4a")
+4:0/0 = 0
+4:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_vccje")
+5:0/0 = 0
+5:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_t1g0w")
+6:0/0 = 0
+6:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_2wfty")
+7:0/0 = 0
+7:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_607l8")
+8:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+0:2/0 = 0
+0:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_lgg2o")
+1:2/0 = 0
+2:2/0 = 0
+2:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_w314f")
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:0/0 = 0
+9:1/0 = 0
+9:2/0 = 0
+
+[resource]
+tile_size = Vector2i(64, 64)
+navigation_layer_0/layers = 1
+sources/0 = SubResource("TileSetAtlasSource_14je3")

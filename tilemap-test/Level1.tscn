@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b8c0v3n1x8bye"]
 
-[ext_resource type="TileSet" uid="uid://ckc4qr6kprw0n" path="res://tileset1.tres" id="1_cnp81"]
+[ext_resource type="TileSet" uid="uid://ckc4qr6kprw0n" path="res://water_gras.tres" id="1_cnp81"]
 
 [node name="Level1" type="TileMap"]
 tile_set = ExtResource("1_cnp81")
