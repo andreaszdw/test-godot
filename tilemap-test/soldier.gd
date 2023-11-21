@@ -30,7 +30,7 @@ func _physics_process(delta):
 	var next_path_position = navi_agent.get_next_path_position()
 	look_at(next_path_position)
 
-	velocity = current_agent_position.direction_to(next_path_position) * 500.0 * delta
+	velocity = current_agent_position.direction_to(next_path_position) * 1500.0 * delta
 	move_and_slide()
 
 	
