@@ -1,0 +1,82 @@
+[gd_scene load_steps=10 format=3 uid="uid://cfdciwki8e6ir"]
+
+[ext_resource type="Texture2D" uid="uid://bo5ysuk41k0xv" path="res://art/character/soldier.png" id="1_1wpgh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d5i0j"]
+atlas = ExtResource("1_1wpgh")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1y3yf"]
+atlas = ExtResource("1_1wpgh")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibtyn"]
+atlas = ExtResource("1_1wpgh")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gt75s"]
+atlas = ExtResource("1_1wpgh")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qame8"]
+atlas = ExtResource("1_1wpgh")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_03758"]
+atlas = ExtResource("1_1wpgh")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qy8gn"]
+atlas = ExtResource("1_1wpgh")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mbm7t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d5i0j")
+}],
+"loop": true,
+"name": &"standing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1y3yf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ibtyn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gt75s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ibtyn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1y3yf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qame8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_03758")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qy8gn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_03758")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qame8")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 16.0
+}]
+
+[node name="soldier" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_mbm7t")
+animation = &"walking"
+frame_progress = 0.960597
