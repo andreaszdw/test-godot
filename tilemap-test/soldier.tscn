@@ -1,82 +1,93 @@
-[gd_scene load_steps=10 format=3 uid="uid://cfdciwki8e6ir"]
+[gd_scene load_steps=12 format=3 uid="uid://w74h6ilvyl0t"]
 
-[ext_resource type="Texture2D" uid="uid://bo5ysuk41k0xv" path="res://art/character/soldier.png" id="1_1wpgh"]
+[ext_resource type="Script" path="res://soldier.gd" id="1_ckicb"]
+[ext_resource type="Texture2D" uid="uid://b6hwiwr3re1ip" path="res://art/character/soldier.png" id="1_q3uvp"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_d5i0j"]
-atlas = ExtResource("1_1wpgh")
+[sub_resource type="AtlasTexture" id="AtlasTexture_wq1pk"]
+atlas = ExtResource("1_q3uvp")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1y3yf"]
-atlas = ExtResource("1_1wpgh")
+[sub_resource type="AtlasTexture" id="AtlasTexture_xek4a"]
+atlas = ExtResource("1_q3uvp")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ibtyn"]
-atlas = ExtResource("1_1wpgh")
+[sub_resource type="AtlasTexture" id="AtlasTexture_7a4mj"]
+atlas = ExtResource("1_q3uvp")
 region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gt75s"]
-atlas = ExtResource("1_1wpgh")
+[sub_resource type="AtlasTexture" id="AtlasTexture_565gf"]
+atlas = ExtResource("1_q3uvp")
 region = Rect2(96, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qame8"]
-atlas = ExtResource("1_1wpgh")
+[sub_resource type="AtlasTexture" id="AtlasTexture_pplrn"]
+atlas = ExtResource("1_q3uvp")
 region = Rect2(128, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_03758"]
-atlas = ExtResource("1_1wpgh")
+[sub_resource type="AtlasTexture" id="AtlasTexture_rgdwr"]
+atlas = ExtResource("1_q3uvp")
 region = Rect2(160, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qy8gn"]
-atlas = ExtResource("1_1wpgh")
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4gj8"]
+atlas = ExtResource("1_q3uvp")
 region = Rect2(192, 0, 32, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_mbm7t"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_ug4js"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_d5i0j")
+"texture": SubResource("AtlasTexture_wq1pk")
 }],
 "loop": true,
 "name": &"standing",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1y3yf")
+"texture": SubResource("AtlasTexture_xek4a")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ibtyn")
+"texture": SubResource("AtlasTexture_7a4mj")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gt75s")
+"texture": SubResource("AtlasTexture_565gf")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ibtyn")
+"texture": SubResource("AtlasTexture_7a4mj")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1y3yf")
+"texture": SubResource("AtlasTexture_xek4a")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qame8")
+"texture": SubResource("AtlasTexture_pplrn")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_03758")
+"texture": SubResource("AtlasTexture_rgdwr")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qy8gn")
+"texture": SubResource("AtlasTexture_x4gj8")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_03758")
+"texture": SubResource("AtlasTexture_rgdwr")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qame8")
+"texture": SubResource("AtlasTexture_pplrn")
 }],
 "loop": true,
 "name": &"walking",
-"speed": 16.0
+"speed": 10.0
 }]
 
-[node name="soldier" type="AnimatedSprite2D"]
-sprite_frames = SubResource("SpriteFrames_mbm7t")
-animation = &"walking"
-frame_progress = 0.960597
+[sub_resource type="CircleShape2D" id="CircleShape2D_r86hx"]
+radius = 8.06226
+
+[node name="Soldier" type="CharacterBody2D"]
+script = ExtResource("1_ckicb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ug4js")
+animation = &"standing"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_r86hx")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

@@ -1,5 +1,7 @@
 extends Node2D
 
+@export var soldier: PackedScene
+
 var tilemap
 var scroll_speed = 200
 var window_width
@@ -28,6 +30,10 @@ func _ready():
 	max_scroll.x = used_rect.size.x * tilemap.tile_set.tile_size.x
 	max_scroll.y = used_rect.size.y * tilemap.tile_set.tile_size.y
 	
+	var s = soldier.instantiate()
+	add_child(s)
+	s.position = (Vector2(200, 100))
+		
 func _process(delta):
 	var mouse_pos = get_viewport().get_mouse_position()
 	
