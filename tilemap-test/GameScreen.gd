@@ -20,9 +20,10 @@ func _ready():
 	var window_size = get_window().get_size()
 	window_width = window_size.x
 	window_height = window_size.y
-	var level = load("res://Level_6.tscn")
+	var level = load("res://level_6.tscn")
 	tilemap = level.instantiate()	
 	add_child(tilemap)
+	$SpawnTimer.start()
 
 	# calculate the max_scroll borders
 	var used_rect = tilemap.get_used_rect()
@@ -30,10 +31,19 @@ func _ready():
 	max_scroll.x = used_rect.size.x * tilemap.tile_set.tile_size.x
 	max_scroll.y = used_rect.size.y * tilemap.tile_set.tile_size.y
 	
-	var s = soldier.instantiate()
-	add_child(s)
-	s.position = (Vector2(500, 300))
-		
+#	var s = soldier.instantiate()
+#	add_child(s)
+#
+#	var s_spawn_location = tilemap.get_SoldierSpawnLocation()
+#	s_spawn_location.progress_ratio = randf()
+#	s.position = s_spawn_location.position
+#
+#	var s_target_A_location = tilemap.get_SoldierTargetALocation()
+#	s_target_A_location.progress_ratio = randf()
+#	s.set_movement_target(s_target_A_location.position)
+#
+#	print(s_spawn_location.position, " ", s_target_A_location.position)
+	
 func _process(delta):
 	var mouse_pos = get_viewport().get_mouse_position()
 	
@@ -132,3 +142,17 @@ func _input(event):
 		if dragging:
 			dragging_event_pos = event.position
 			
+
+
+func _on_spawn_timer_timeout():
+	var s = soldier.instantiate()
+	add_child(s)
+
+	var s_spawn_location = tilemap.get_SoldierSpawnLocation()
+	s_spawn_location.progress_ratio = randf()
+	s.position = s_spawn_location.position
+
+	var s_target_A_location = tilemap.get_SoldierTargetALocation()
+	s_target_A_location.progress_ratio = randf()
+	s.set_movement_target(s_target_A_location.position)
+	

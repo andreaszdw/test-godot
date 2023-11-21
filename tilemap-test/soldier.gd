@@ -7,16 +7,13 @@ func _ready():
 	ani_sprite = $AnimatedSprite2D
 	navi_agent = $NavigationAgent2D
 	navi_agent.path_desired_distance = 2.0
-	navi_agent.target_desired_distance = 2.0
-	navi_agent.debug_enabled = true
+	navi_agent.target_desired_distance = 10.0
+	navi_agent.debug_enabled = false
 	
-func _input(event):
-	pass
+func _input(event):if event is InputEventMouseButton:
+	if event.button_index == MOUSE_BUTTON_LEFT:
+		set_movement_target(get_global_mouse_position())
 	
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT:
-			set_movement_target(get_global_mouse_position())
-			
 func set_movement_target(mt):
 	navi_agent.target_position = mt
 	

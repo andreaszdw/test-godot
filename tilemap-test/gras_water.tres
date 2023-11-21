@@ -3,48 +3,48 @@
 [ext_resource type="Texture2D" uid="uid://dp3as65pbmd3p" path="res://art/tiles/water_gras.png" id="1_vstug"]
 [ext_resource type="Texture2D" uid="uid://d0t1p23xnwk5l" path="res://art/tiles/sand_gras.png" id="2_ekddi"]
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_dbjb3"]
-vertices = PackedVector2Array(-32, -27, 26, 32, 25.5, 32, -32, 32)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 0)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-32, -27, 26, 32, 25.5, 32, -32, 32, -32, -27)])
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_cqw3y"]
+vertices = PackedVector2Array(-32, 32, -32, -32, -1.5, -1, 32, 32)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(0, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-32, -32, -1.5, -1, 32, 32, -32, 32)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_lgg2o"]
 vertices = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)])
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_h1nfn"]
-vertices = PackedVector2Array(32, -27, 32, 32, -25, 32, -25.5, 32)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 0)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(32, -27, -25.5, 32, -25, 32, 32, 32, 32, -27)])
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_apbdi"]
+vertices = PackedVector2Array(6, -5.5, 32, -32, 32, 32, -32, 32)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 0, 2)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(6, -5.5, 32, -32, 32, 32, -32, 32)])
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_sg8hy"]
-vertices = PackedVector2Array(-26, -32, 32, -32, 32, 23.5, 32, 25)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 0)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-26, -32, 32, -32, 32, 23.5, 32, 25, -26, -32)])
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_o5g3r"]
+vertices = PackedVector2Array(32, -32, 32, 32, 3.5, 1.75, -32, -32)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(2, 3, 0)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-32, -32, 32, -32, 32, 32, 3.5, 1.75)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_w314f"]
 vertices = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)])
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_slppr"]
-vertices = PackedVector2Array(-32, -32, 25.5, -32, -32, 26)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 1, 2, 2)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-32, -32, 25.5, -32, 25.5, -32, -32, 26, -32, 26)])
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_urklq"]
+vertices = PackedVector2Array(-32, -32, 32, -32, 7, -7, -32, 32)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-32, -32, 32, -32, 7, -7, -32, 32)])
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_14je3"]
 resource_name = "gras_water"
 texture = ExtResource("1_vstug")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
-0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_dbjb3")
+0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_cqw3y")
 1:0/0 = 0
-1:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_h1nfn")
+1:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_apbdi")
 2:0/0 = 0
-2:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_sg8hy")
+2:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_o5g3r")
 3:0/0 = 0
-3:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_slppr")
+3:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_urklq")
 4:0/0 = 0
 5:0/0 = 0
 6:0/0 = 0

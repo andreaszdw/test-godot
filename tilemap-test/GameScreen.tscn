@@ -20,3 +20,8 @@ soldier = ExtResource("2_oe2bu")
 
 [node name="MapCam" type="Camera2D" parent="."]
 script = SubResource("GDScript_xqx58")
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
