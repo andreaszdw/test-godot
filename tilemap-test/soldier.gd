@@ -11,11 +11,7 @@ func _ready():
 	navi_agent.debug_enabled = true
 	
 func _input(event):
-	if event is InputEventKey and event.pressed:
-		if event.keycode == KEY_W:
-			ani_sprite.play("walking")
-		else:
-			ani_sprite.play("standing")
+	pass
 	
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
@@ -24,14 +20,17 @@ func _input(event):
 func set_movement_target(mt):
 	navi_agent.target_position = mt
 	
-func _physics_process(_delta):
+func _physics_process(delta):
 	if navi_agent.is_navigation_finished():
+		$AnimatedSprite2D.play("standing")
 		return
-		
+	
+	$AnimatedSprite2D.play("walking")
 	var current_agent_position = global_position
 	var next_path_position = navi_agent.get_next_path_position()
+	look_at(next_path_position)
 
-	velocity = current_agent_position.direction_to(next_path_position) * 200.0
+	velocity = current_agent_position.direction_to(next_path_position) * 500.0 * delta
 	move_and_slide()
 
 	

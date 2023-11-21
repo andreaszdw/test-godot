@@ -20,7 +20,7 @@ func _ready():
 	var window_size = get_window().get_size()
 	window_width = window_size.x
 	window_height = window_size.y
-	var level = load("res://Level_5.tscn")
+	var level = load("res://Level_6.tscn")
 	tilemap = level.instantiate()	
 	add_child(tilemap)
 
@@ -32,7 +32,7 @@ func _ready():
 	
 	var s = soldier.instantiate()
 	add_child(s)
-	s.position = (Vector2(200, 100))
+	s.position = (Vector2(500, 300))
 		
 func _process(delta):
 	var mouse_pos = get_viewport().get_mouse_position()
@@ -119,7 +119,7 @@ func _input(event):
 			zoom = zoom_speed
 		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 			zoom = -zoom_speed
-		if event.button_index == MOUSE_BUTTON_LEFT:
+		if event.button_index == MOUSE_BUTTON_MIDDLE:
 			if not dragging and event.pressed:
 				dragging_start_pos = event.position
 				dragging_screen_start_pos = $MapCam.position
