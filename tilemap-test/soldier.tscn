@@ -78,7 +78,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r86hx"]
-radius = 8.06226
+radius = 5.0
 
 [node name="Soldier" type="CharacterBody2D"]
 script = ExtResource("1_ckicb")

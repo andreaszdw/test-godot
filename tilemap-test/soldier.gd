@@ -2,13 +2,14 @@ extends CharacterBody2D
 
 var ani_sprite
 var navi_agent
+var speed = 3000.0
 
 func _ready():
 	ani_sprite = $AnimatedSprite2D
 	navi_agent = $NavigationAgent2D
-	navi_agent.path_desired_distance = 2.0
-	navi_agent.target_desired_distance = 10.0
-	navi_agent.debug_enabled = false
+	navi_agent.path_desired_distance = 20.0
+	navi_agent.target_desired_distance = 100.0
+	navi_agent.debug_enabled = true
 	
 func _input(event):if event is InputEventMouseButton:
 	if event.button_index == MOUSE_BUTTON_LEFT:
@@ -27,7 +28,7 @@ func _physics_process(delta):
 	var next_path_position = navi_agent.get_next_path_position()
 	look_at(next_path_position)
 
-	velocity = current_agent_position.direction_to(next_path_position) * 1500.0 * delta
+	velocity = current_agent_position.direction_to(next_path_position) * speed * delta
 	move_and_slide()
 
 	
