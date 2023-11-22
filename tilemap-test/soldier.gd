@@ -32,3 +32,8 @@ func _physics_process(delta):
 	move_and_slide()
 
 	
+
+
+func _on_navigation_agent_2d_velocity_computed(safe_velocity):
+	velocity = safe_velocity
+	move_and_slide()
