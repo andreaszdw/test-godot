@@ -2,24 +2,14 @@
 
 [ext_resource type="Script" path="res://GameScreen.gd" id="1_fhhow"]
 [ext_resource type="PackedScene" uid="uid://w74h6ilvyl0t" path="res://soldier.tscn" id="2_oe2bu"]
-
-[sub_resource type="GDScript" id="GDScript_xqx58"]
-script/source = "extends Camera2D
-
-func _ready():
-	pass
-	
-func _process(delta):
-	pass
-	
-"
+[ext_resource type="Script" path="res://MapCam.gd" id="3_ugxer"]
 
 [node name="GameScreen" type="Node2D"]
 script = ExtResource("1_fhhow")
 soldier = ExtResource("2_oe2bu")
 
 [node name="MapCam" type="Camera2D" parent="."]
-script = SubResource("GDScript_xqx58")
+script = ExtResource("3_ugxer")
 
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 2.0
