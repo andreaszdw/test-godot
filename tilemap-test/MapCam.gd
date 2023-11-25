@@ -54,20 +54,20 @@ func _process(delta):
 
 	# scrolling y, faster and slower
 	if mouse_pos.y < 40:
-		scroll.y = -scroll_speed * 3 * delta
+		scroll.y = -scroll_speed  * delta
 
 	if mouse_pos.y < 15 and mouse_pos.y >= 0:
-		scroll.y = -scroll_speed * delta
+		scroll.y = -scroll_speed * 3 * delta
 		
 	if mouse_pos.y < 0:
 		scroll.x = 0
 		scroll.y = 0
 
 	if mouse_pos.y > window_height - 40:
-		scroll.y = scroll_speed * 3 * delta
+		scroll.y = scroll_speed  * delta
 
 	if mouse_pos.y > window_height - 15 and mouse_pos.y <= window_height:
-		scroll.y = scroll_speed * delta
+		scroll.y = scroll_speed * 3 * delta
 		
 	if mouse_pos.y > window_height:
 		scroll.x = 0
