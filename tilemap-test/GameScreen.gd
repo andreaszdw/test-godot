@@ -16,7 +16,12 @@ func _ready():
 	var tmp_y = used_rect.size.y * tilemap.tile_set.tile_size.y
 	
 	$MapCam.set_max_scroll(tmp_x, tmp_y)
-	$SpawnTimer.start()
+	
+	var s = soldier.instantiate()
+	add_child(s)
+	s.position = Vector2(300, 300)
+	
+	#$SpawnTimer.start()
 	
 func _process(delta):
 	pass
