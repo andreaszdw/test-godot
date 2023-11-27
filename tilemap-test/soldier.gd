@@ -13,21 +13,21 @@ func _ready():
 	navi_agent.target_desired_distance = 100.0
 	navi_agent.debug_enabled = true
 	
-func _input(event):if event is InputEventMouseButton:
-	if event.button_index == MOUSE_BUTTON_LEFT:
-		if mouse_over:
-			selected = true
-		else:
-			selected = false
-	
-func set_movement_target(mt):
-	navi_agent.target_position = mt
-	
+func _input(event):
+	pass
+#	if event is InputEventMouseButton:
+#		if event.button_index == MOUSE_BUTTON_LEFT:
+#			if event.pressed:
+#				if mouse_over:
+#					if not selected:
+#						selected = true
+#					else:
+#						selected = false
+#			if selected:
+#				set_movement_target(get_global_mouse_position())
+#
 func _process(delta):
-	if selected:
-		print("selected")
-	else:
-		print("not")
+	pass
 	
 func _physics_process(delta):
 	if navi_agent.is_navigation_finished():
@@ -52,3 +52,12 @@ func _on_mouse_entered():
 
 func _on_mouse_exited():
 	mouse_over = false
+
+func select():
+	selected = true
+	
+func deselect():
+	selected = false
+	
+func set_movement_target(mt):
+	navi_agent.target_position = mt

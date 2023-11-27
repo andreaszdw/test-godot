@@ -4,6 +4,8 @@ extends Node2D
 
 var level
 var tilemap
+
+var army = []
 	
 func _ready():	
 	# load tilemap
@@ -17,17 +19,34 @@ func _ready():
 	
 	$MapCam.set_max_scroll(tmp_x, tmp_y)
 	
-	var s = soldier.instantiate()
-	add_child(s)
-	s.position = Vector2(300, 300)
+	for x in range(10):
+		var s = soldier.instantiate()
+		add_child(s)
+		s.position = Vector2(300 + x* 20, 300)
+		army.append(s)
 	
 	#$SpawnTimer.start()
 	
 func _process(delta):
 	pass
 	
-func _input(event):	
-	pass
+func _input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			if event.pressed:
+				var pressed_position = get_global_mouse_position()
+				for s in army:
+					if s.mouse_over:
+						if not s.selected:
+							if not Input.is_key_pressed(KEY_SHIFT):
+								for n in army:
+									n.deselect()
+							s.select()
+						else:
+							s.deselect()
+					if s.selected:
+						if not Input.is_key_pressed(KEY_SHIFT):
+							s.set_movement_target(pressed_position)
 	
 func _on_spawn_timer_timeout():
 	var s = soldier.instantiate()
