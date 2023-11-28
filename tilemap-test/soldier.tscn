@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://w74h6ilvyl0t"]
+[gd_scene load_steps=13 format=3 uid="uid://w74h6ilvyl0t"]
 
 [ext_resource type="Script" path="res://soldier.gd" id="1_ckicb"]
 [ext_resource type="Texture2D" uid="uid://b6hwiwr3re1ip" path="res://art/character/soldier.png" id="1_q3uvp"]
+[ext_resource type="Texture2D" uid="uid://b3435eq173fcm" path="res://art/cursor.png" id="3_1quh4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wq1pk"]
 atlas = ExtResource("1_q3uvp")
@@ -94,6 +95,11 @@ shape = SubResource("CircleShape2D_r86hx")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_max_distance = 500.0
 avoidance_enabled = true
+
+[node name="Cursor" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_1quh4")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
