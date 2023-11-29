@@ -79,7 +79,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r86hx"]
-radius = 5.0
+radius = 7.0
 
 [node name="Soldier" type="CharacterBody2D"]
 input_pickable = true
@@ -91,12 +91,14 @@ sprite_frames = SubResource("SpriteFrames_ug4js")
 animation = &"standing"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("CircleShape2D_r86hx")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 60.0
 path_max_distance = 500.0
 avoidance_enabled = true
+time_horizon_agents = 5.0
+time_horizon_obstacles = 5.0
 
 [node name="Cursor" type="Sprite2D" parent="."]
 visible = false

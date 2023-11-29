@@ -32,6 +32,19 @@ func _ready():
 	#$SpawnTimer.start()
 	
 func _process(delta):
+	var mp = get_global_mouse_position()
+	for p in paths:
+		p.queue_free()
+		
+	paths.clear()
+	
+	for s in army:
+		if s.selected:
+			var tmp_path = NavigationServer2D.map_get_path(rid_tilemap, s.position, mp, true)
+			var pp = possible_path.instantiate()
+			pp.points = tmp_path			
+			add_child(pp)
+			paths.append(pp)
 	queue_redraw()
 	
 func _input(event):
@@ -60,18 +73,20 @@ func _input(event):
 						if not Input.is_key_pressed(KEY_SHIFT):
 							s.set_movement_target(mp)
 							
-func _draw():
-	var mp = get_global_mouse_position()
-	for p in paths:
-		remove_child(p)
-	paths = []
-	for s in army:
-		if s.selected:
-			var tmp_path = NavigationServer2D.map_get_path(rid_tilemap, s.position, mp, true)
-			var pp = possible_path.instantiate()
-			pp.points = tmp_path
-			add_child(pp)
-			paths.append(pp)
+#func _draw():
+#	var mp = get_global_mouse_position()
+#	for p in paths:
+#		p.queue_free()
+#
+#	paths.clear()
+#
+#	for s in army:
+#		if s.selected:
+#			var tmp_path = NavigationServer2D.map_get_path(rid_tilemap, s.position, mp, true)
+#			var pp = possible_path.instantiate()
+#			pp.points = tmp_path			
+#			add_child(pp)
+#			paths.append(pp)
 	
 func _on_spawn_timer_timeout():
 	var s = soldier.instantiate()
