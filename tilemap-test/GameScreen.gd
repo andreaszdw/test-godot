@@ -2,6 +2,7 @@ extends Node2D
 
 @export var soldier: PackedScene
 @export var possible_path: PackedScene
+@export var w_soldier: PackedScene
 
 var level
 var tilemap
@@ -10,6 +11,7 @@ var Draw
 
 var army = []
 var paths = []
+var way_points = []
 	
 func _ready():	
 	# load tilemap
@@ -24,27 +26,33 @@ func _ready():
 	
 	$MapCam.set_max_scroll(tmp_x, tmp_y)
 	
-	for x in range(10):
+	for x in range(1):
 		var s = soldier.instantiate()
 		add_child(s)
 		s.position = Vector2(300 + x* 20, 300)
 		army.append(s)
+		
 	#$SpawnTimer.start()
 	
 func _process(delta):
 	var mp = get_global_mouse_position()
 	for p in paths:
-		p.queue_free()
+		p.delete()
 		
 	paths.clear()
 	
 	for s in army:
 		if s.selected:
-			var tmp_path = NavigationServer2D.map_get_path(rid_tilemap, s.position, mp, true)
-			var pp = possible_path.instantiate()
-			pp.points = tmp_path			
-			add_child(pp)
-			paths.append(pp)
+			var tmp_path
+			if s.name == "Soldier":
+				tmp_path = NavigationServer2D.map_get_path(rid_tilemap, s.position, mp, true, 1)
+			if s.name == "WaterSoldier":
+				tmp_path = NavigationServer2D.map_get_path(rid_tilemap, s.position, mp, true, 2)
+			if tmp_path:
+				var pp = possible_path.instantiate()
+				pp.points = tmp_path			
+				add_child(pp)
+				paths.append(pp)
 	queue_redraw()
 	
 func _input(event):

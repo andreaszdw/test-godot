@@ -1,14 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://vw0ycr5nciyt"]
+[gd_scene load_steps=2 format=3 uid="uid://vw0ycr5nciyt"]
 
 [ext_resource type="Texture2D" uid="uid://vny4qfrl0mvs" path="res://art/obstacle/rock128x128.png" id="1_20w2l"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_5161w"]
-radius = 61.2944
 
 [node name="Rock128x128" type="CharacterBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_20w2l")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_5161w")
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-50, -58, -3, -56, 27, -59, 45, -44, 61, -3, 60, 25, 53, 53, 42, 59, -43, 61, -62, 35, -54, 2, -66, -33)
