@@ -1,9 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://y2khwkq1dxin"]
+[gd_scene load_steps=14 format=3 uid="uid://sm6pm14i3m3a"]
 
 [ext_resource type="PackedScene" uid="uid://dmknx1foqdotd" path="res://MoveableUnit.tscn" id="1_v2ewn"]
 [ext_resource type="Script" path="res://Soldier.gd" id="2_1he7a"]
 [ext_resource type="Texture2D" uid="uid://b6hwiwr3re1ip" path="res://art/character/soldier.png" id="2_6hp5p"]
-[ext_resource type="Texture2D" uid="uid://dhvd4dv6u6qi1" path="res://art/character/dummy.png" id="3_it6he"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rl1ht"]
+atlas = ExtResource("2_6hp5p")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nkkmb"]
 atlas = ExtResource("2_6hp5p")
@@ -37,7 +40,7 @@ region = Rect2(192, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_it6he")
+"texture": SubResource("AtlasTexture_rl1ht")
 }],
 "loop": true,
 "name": &"default",
@@ -57,6 +60,15 @@ animations = [{
 "texture": SubResource("AtlasTexture_3kva1")
 }, {
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_ghwby")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uboki")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nkkmb")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_1n7mi")
 }, {
 "duration": 1.0,
@@ -64,6 +76,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_b805e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1n7mi")
 }],
 "loop": true,
 "name": &"walking",
@@ -79,6 +94,7 @@ unit_name = "Soldier"
 
 [node name="UnitSprite" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_a2ani")
+frame_progress = 0.223088
 
 [node name="CollShape" parent="." index="1"]
 shape = SubResource("CircleShape2D_lqs65")

@@ -23,8 +23,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_m5lsw"]
-size = Vector2(32, 32)
+[sub_resource type="CircleShape2D" id="CircleShape2D_dnub6"]
+radius = 7.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fkcw0"]
 animations = [{
@@ -43,15 +43,18 @@ script = ExtResource("1_4r2vr")
 
 [node name="UnitSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_w3ijd")
+animation = &"walking"
+frame_progress = 0.598672
 
 [node name="CollShape" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_m5lsw")
+shape = SubResource("CircleShape2D_dnub6")
 
 [node name="NavAgent" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true
 
 [node name="SelCur" type="AnimatedSprite2D" parent="."]
 visible = false
+scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_fkcw0")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
