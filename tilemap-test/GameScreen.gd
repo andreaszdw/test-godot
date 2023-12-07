@@ -2,7 +2,7 @@ extends Node2D
 
 @export var soldier: PackedScene
 @export var possible_path: PackedScene
-@export var w_soldier: PackedScene
+@export var moveable: PackedScene
 
 var level
 var tilemap
@@ -25,12 +25,11 @@ func _ready():
 	var tmp_y = used_rect.size.y * tilemap.tile_set.tile_size.y
 	
 	$MapCam.set_max_scroll(tmp_x, tmp_y)
-	
-	for x in range(1):
-		var s = soldier.instantiate()
-		add_child(s)
-		s.position = Vector2(300 + x* 20, 300)
-		army.append(s)
+		
+	var s = soldier.instantiate()
+	add_child(s)
+	s.position = Vector2(350, 300)
+	army.append(s)
 		
 	#$SpawnTimer.start()
 	
@@ -44,10 +43,11 @@ func _process(delta):
 	for s in army:
 		if s.selected:
 			var tmp_path
-			if s.name == "Soldier":
-				tmp_path = NavigationServer2D.map_get_path(rid_tilemap, s.position, mp, true, 1)
-			if s.name == "WaterSoldier":
-				tmp_path = NavigationServer2D.map_get_path(rid_tilemap, s.position, mp, true, 2)
+#			if s.name == "Soldier":
+#				tmp_path = NavigationServer2D.map_get_path(rid_tilemap, s.position, mp, true, 1)
+#			if s.name == "WaterSoldier":
+#				tmp_path = NavigationServer2D.map_get_path(rid_tilemap, s.position, mp, true, 2)
+			tmp_path = NavigationServer2D.map_get_path(rid_tilemap, s.position, mp, true, s.nav_layer)
 			if tmp_path:
 				var pp = possible_path.instantiate()
 				pp.points = tmp_path			

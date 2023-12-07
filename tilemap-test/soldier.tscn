@@ -1,163 +1,84 @@
-[gd_scene load_steps=13 format=3 uid="uid://w74h6ilvyl0t"]
+[gd_scene load_steps=14 format=3 uid="uid://y2khwkq1dxin"]
 
-[ext_resource type="Texture2D" uid="uid://b6hwiwr3re1ip" path="res://art/character/soldier.png" id="1_q3uvp"]
-[ext_resource type="Texture2D" uid="uid://b3435eq173fcm" path="res://art/cursor.png" id="3_1quh4"]
+[ext_resource type="PackedScene" uid="uid://dmknx1foqdotd" path="res://MoveableUnit.tscn" id="1_v2ewn"]
+[ext_resource type="Script" path="res://Soldier.gd" id="2_1he7a"]
+[ext_resource type="Texture2D" uid="uid://b6hwiwr3re1ip" path="res://art/character/soldier.png" id="2_6hp5p"]
+[ext_resource type="Texture2D" uid="uid://dhvd4dv6u6qi1" path="res://art/character/dummy.png" id="3_it6he"]
 
-[sub_resource type="GDScript" id="GDScript_f5vxg"]
-script/source = "extends CharacterBody2D
-
-@export var max_velocity = 3000
-
-var mouse_over = false
-var selected = false
-
-func _ready():
-	pass
-	
-func _input(event):
-	pass
-	
-func _process(delta):
-	pass
-	
-func _physics_process(delta):
-	if $NavAgent.is_navigation_finished():
-		$AniSprite.play(\"standing\")
-		return
-	
-	$AniSprite.play(\"walking\")
-	var current_agent_position = global_position
-	var next_path_position = $NavAgent.get_next_path_position()
-	look_at(next_path_position)
-
-	var new_velocity = current_agent_position.direction_to(next_path_position) * max_velocity * delta
-	$NavAgent.set_velocity(new_velocity)
-	move_and_slide()
-
-func _on_navigation_agent_2d_velocity_computed(safe_velocity):
-	velocity = safe_velocity
-	move_and_slide()
-
-func _on_mouse_entered():
-	mouse_over = true
-
-func _on_mouse_exited():
-	mouse_over = false
-	
-func select():
-	selected = true
-	$SelCursor.visible = true
-	
-func deselect():
-	selected = false
-	$SelCursor.visible = false
-	
-func set_movement_target(mt):
-	$NavAgent.target_position = mt
-	
-"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wq1pk"]
-atlas = ExtResource("1_q3uvp")
+[sub_resource type="AtlasTexture" id="AtlasTexture_nkkmb"]
+atlas = ExtResource("2_6hp5p")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xek4a"]
-atlas = ExtResource("1_q3uvp")
+[sub_resource type="AtlasTexture" id="AtlasTexture_uboki"]
+atlas = ExtResource("2_6hp5p")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7a4mj"]
-atlas = ExtResource("1_q3uvp")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ghwby"]
+atlas = ExtResource("2_6hp5p")
 region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_565gf"]
-atlas = ExtResource("1_q3uvp")
+[sub_resource type="AtlasTexture" id="AtlasTexture_3kva1"]
+atlas = ExtResource("2_6hp5p")
 region = Rect2(96, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pplrn"]
-atlas = ExtResource("1_q3uvp")
+[sub_resource type="AtlasTexture" id="AtlasTexture_1n7mi"]
+atlas = ExtResource("2_6hp5p")
 region = Rect2(128, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rgdwr"]
-atlas = ExtResource("1_q3uvp")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ntoie"]
+atlas = ExtResource("2_6hp5p")
 region = Rect2(160, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_x4gj8"]
-atlas = ExtResource("1_q3uvp")
+[sub_resource type="AtlasTexture" id="AtlasTexture_b805e"]
+atlas = ExtResource("2_6hp5p")
 region = Rect2(192, 0, 32, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_ug4js"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_a2ani"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wq1pk")
+"texture": ExtResource("3_it6he")
 }],
 "loop": true,
-"name": &"standing",
-"speed": 10.0
+"name": &"default",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xek4a")
+"texture": SubResource("AtlasTexture_nkkmb")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7a4mj")
+"texture": SubResource("AtlasTexture_uboki")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_565gf")
+"texture": SubResource("AtlasTexture_ghwby")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7a4mj")
+"texture": SubResource("AtlasTexture_3kva1")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xek4a")
+"texture": SubResource("AtlasTexture_1n7mi")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pplrn")
+"texture": SubResource("AtlasTexture_ntoie")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rgdwr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x4gj8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rgdwr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pplrn")
+"texture": SubResource("AtlasTexture_b805e")
 }],
 "loop": true,
 "name": &"walking",
-"speed": 10.0
+"speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_r86hx"]
-radius = 7.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_lqs65"]
+radius = 8.0
 
-[node name="Soldier" type="CharacterBody2D"]
-input_pickable = true
-motion_mode = 1
-script = SubResource("GDScript_f5vxg")
+[node name="Soldier" instance=ExtResource("1_v2ewn")]
+script = ExtResource("2_1he7a")
+unit_name = "Soldier"
 
-[node name="AniSprite" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_ug4js")
-animation = &"standing"
+[node name="UnitSprite" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_a2ani")
 
-[node name="ColShape" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_r86hx")
-
-[node name="NavAgent" type="NavigationAgent2D" parent="."]
-path_desired_distance = 10.0
-path_max_distance = 500.0
-avoidance_enabled = true
-time_horizon_agents = 5.0
-time_horizon_obstacles = 5.0
-
-[node name="SelCursor" type="Sprite2D" parent="."]
-visible = false
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("3_1quh4")
-
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
-[connection signal="velocity_computed" from="NavAgent" to="." method="_on_navigation_agent_2d_velocity_computed"]
+[node name="CollShape" parent="." index="1"]
+shape = SubResource("CircleShape2D_lqs65")

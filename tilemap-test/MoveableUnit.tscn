@@ -13,6 +13,14 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_pvc8a")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m5lsw"]
@@ -30,15 +38,22 @@ animations = [{
 }]
 
 [node name="MoveableUnit" type="CharacterBody2D"]
+input_pickable = true
 script = ExtResource("1_4r2vr")
 
 [node name="UnitSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_w3ijd")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollShape" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_m5lsw")
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+[node name="NavAgent" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
 
-[node name="CursorSprite" type="AnimatedSprite2D" parent="."]
+[node name="SelCur" type="AnimatedSprite2D" parent="."]
+visible = false
 sprite_frames = SubResource("SpriteFrames_fkcw0")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="velocity_computed" from="NavAgent" to="." method="_on_nav_agent_velocity_computed"]
