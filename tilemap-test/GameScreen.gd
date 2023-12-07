@@ -15,7 +15,7 @@ var way_points = []
 	
 func _ready():	
 	# load tilemap
-	var level = load("res://level_6.tscn")
+	level = load("res://level_6.tscn")
 	tilemap = level.instantiate()	
 	add_child(tilemap)
 	rid_tilemap = tilemap.get_navigation_map(0)

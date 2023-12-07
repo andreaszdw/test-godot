@@ -1,8 +1,61 @@
 [gd_scene load_steps=13 format=3 uid="uid://w74h6ilvyl0t"]
 
-[ext_resource type="Script" path="res://soldier.gd" id="1_ckicb"]
 [ext_resource type="Texture2D" uid="uid://b6hwiwr3re1ip" path="res://art/character/soldier.png" id="1_q3uvp"]
 [ext_resource type="Texture2D" uid="uid://b3435eq173fcm" path="res://art/cursor.png" id="3_1quh4"]
+
+[sub_resource type="GDScript" id="GDScript_f5vxg"]
+script/source = "extends CharacterBody2D
+
+@export var max_velocity = 3000
+
+var mouse_over = false
+var selected = false
+
+func _ready():
+	pass
+	
+func _input(event):
+	pass
+	
+func _process(delta):
+	pass
+	
+func _physics_process(delta):
+	if $NavAgent.is_navigation_finished():
+		$AniSprite.play(\"standing\")
+		return
+	
+	$AniSprite.play(\"walking\")
+	var current_agent_position = global_position
+	var next_path_position = $NavAgent.get_next_path_position()
+	look_at(next_path_position)
+
+	var new_velocity = current_agent_position.direction_to(next_path_position) * max_velocity * delta
+	$NavAgent.set_velocity(new_velocity)
+	move_and_slide()
+
+func _on_navigation_agent_2d_velocity_computed(safe_velocity):
+	velocity = safe_velocity
+	move_and_slide()
+
+func _on_mouse_entered():
+	mouse_over = true
+
+func _on_mouse_exited():
+	mouse_over = false
+	
+func select():
+	selected = true
+	$SelCursor.visible = true
+	
+func deselect():
+	selected = false
+	$SelCursor.visible = false
+	
+func set_movement_target(mt):
+	$NavAgent.target_position = mt
+	
+"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wq1pk"]
 atlas = ExtResource("1_q3uvp")
@@ -84,26 +137,27 @@ radius = 7.0
 [node name="Soldier" type="CharacterBody2D"]
 input_pickable = true
 motion_mode = 1
-script = ExtResource("1_ckicb")
+script = SubResource("GDScript_f5vxg")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AniSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ug4js")
 animation = &"standing"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="ColShape" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_r86hx")
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+[node name="NavAgent" type="NavigationAgent2D" parent="."]
+path_desired_distance = 10.0
 path_max_distance = 500.0
 avoidance_enabled = true
 time_horizon_agents = 5.0
 time_horizon_obstacles = 5.0
 
-[node name="Cursor" type="Sprite2D" parent="."]
+[node name="SelCursor" type="Sprite2D" parent="."]
 visible = false
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_1quh4")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
-[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
+[connection signal="velocity_computed" from="NavAgent" to="." method="_on_navigation_agent_2d_velocity_computed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d3iw7440e5psi"]
+[gd_scene load_steps=7 format=3 uid="uid://d3iw7440e5psi"]
 
 [ext_resource type="TileSet" uid="uid://g5hd5cqd0o1c" path="res://gras_water.tres" id="1_46tkx"]
 [ext_resource type="Script" path="res://level_6.gd" id="2_k60qh"]
@@ -20,11 +20,6 @@ point_count = 5
 vertices = PackedVector2Array(1026, 258, 1026, 957, 961, 770, 959, 507, 1859, 1027, 1860, 1854, 1787, 1923, 1415, 1467, 1788, 959, 867, 283, 958, 189, 902, 386, 861, 342, 903, 449, 840, 896, 829, 1280, 836, 231, 126, 190, 754, 231, 741, 256, 316, 383, 1098, 1787, 1098, 1854, 644, 1925, 830, 1857, 701, 1793, 765, 1794, 574, 1854, 572, 1336, 695, 1728, 830, 1595, 710, 1718, 1348, 1402, 1346, 1281, 316, 898, 518, 1276, 198, 1284, 127, 1211, 255, 840, 257, 443, 751, 289, 744, 325, 849, 348, 805, 348, 762, 349)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7, 8), PackedInt32Array(9, 10, 0, 11, 12), PackedInt32Array(0, 3, 13, 11), PackedInt32Array(14, 2, 1, 15), PackedInt32Array(10, 9, 16), PackedInt32Array(17, 10, 16, 18), PackedInt32Array(17, 18, 19, 20), PackedInt32Array(21, 7, 6, 22), PackedInt32Array(22, 6, 23, 24), PackedInt32Array(25, 26, 24, 23, 27), PackedInt32Array(25, 27, 28, 29), PackedInt32Array(30, 31, 29, 28, 15), PackedInt32Array(8, 7, 32, 33), PackedInt32Array(1, 8, 33, 15), PackedInt32Array(34, 14, 15, 28, 35), PackedInt32Array(34, 35, 36, 37, 38), PackedInt32Array(38, 37, 17, 39), PackedInt32Array(20, 39, 17), PackedInt32Array(20, 19, 40, 41), PackedInt32Array(42, 12, 11), PackedInt32Array(43, 42, 11, 20, 44), PackedInt32Array(20, 41, 44)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(126, 190, 958, 189, 1026, 258, 1026, 957, 1788, 959, 1859, 1027, 1860, 1854, 1787, 1923, 644, 1925, 574, 1854, 572, 1336, 518, 1276, 198, 1284, 127, 1211), PackedVector2Array(902, 386, 316, 383, 257, 443, 255, 840, 316, 898, 840, 896, 961, 770, 959, 507, 903, 449), PackedVector2Array(836, 231, 754, 231, 741, 256, 751, 289, 744, 325, 762, 349, 805, 348, 849, 348, 861, 342, 867, 283), PackedVector2Array(829, 1280, 830, 1595, 710, 1718, 695, 1728, 701, 1793, 765, 1794, 830, 1857, 1098, 1854, 1098, 1787, 1415, 1467, 1348, 1402, 1346, 1281)])
-
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_8lv88"]
-vertices = PackedVector2Array(276, 821, 275, 449, 330, 399, 881, 403, 884, 454, 830, 877, 327, 879, 946, 757, 943, 515, 845, 1604, 1081, 1783, 1081, 1843, 833, 1838, 776, 1778, 845, 1294, 1329, 1295, 1328, 1411, 717, 1777, 718, 1729, 1391, 1474)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6), PackedInt32Array(7, 5, 4, 8), PackedInt32Array(9, 10, 11, 12, 13), PackedInt32Array(9, 14, 15, 16, 10), PackedInt32Array(13, 17, 18, 9), PackedInt32Array(16, 19, 10)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(881, 403, 884, 454, 943, 515, 946, 757, 830, 877, 327, 879, 276, 821, 275, 449, 330, 399), PackedVector2Array(845, 1294, 1329, 1295, 1328, 1411, 1391, 1474, 1081, 1783, 1081, 1843, 833, 1838, 776, 1778, 717, 1777, 718, 1729, 845, 1604)])
 
 [node name="Level_6" type="TileMap"]
 tile_set = ExtResource("1_46tkx")
@@ -50,7 +45,3 @@ position = Vector2(320, 1024)
 
 [node name="LandRegion" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_i26lr")
-
-[node name="WaterRegion" type="NavigationRegion2D" parent="."]
-navigation_polygon = SubResource("NavigationPolygon_8lv88")
-navigation_layers = 2

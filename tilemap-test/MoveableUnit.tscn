@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://dmknx1foqdotd"]
+
+[ext_resource type="Script" path="res://MoveableUnit.gd" id="1_4r2vr"]
+[ext_resource type="Texture2D" uid="uid://dhvd4dv6u6qi1" path="res://art/character/dummy.png" id="1_pvc8a"]
+[ext_resource type="Texture2D" uid="uid://b3435eq173fcm" path="res://art/cursor.png" id="1_s44uf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w3ijd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_pvc8a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m5lsw"]
+size = Vector2(32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fkcw0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_s44uf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="MoveableUnit" type="CharacterBody2D"]
+script = ExtResource("1_4r2vr")
+
+[node name="UnitSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_w3ijd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_m5lsw")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="CursorSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_fkcw0")

@@ -25,6 +25,11 @@ window/size/viewport_height=720
 
 import/blender/enabled=false
 
+[layer_names]
+
+2d_navigation/layer_1="land"
+2d_navigation/layer_2="water"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

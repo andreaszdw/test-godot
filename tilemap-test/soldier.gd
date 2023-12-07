@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name Infantry
+
 var ani_sprite
 var navi_agent
 var speed = 3000.0
@@ -11,7 +13,7 @@ func _ready():
 	navi_agent = $NavigationAgent2D
 	navi_agent.path_desired_distance = 20.0
 	navi_agent.target_desired_distance = 100.0
-	navi_agent.debug_enabled = true
+	navi_agent.debug_enabled = false
 	
 func _input(event):
 	pass
