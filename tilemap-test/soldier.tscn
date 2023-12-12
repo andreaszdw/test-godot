@@ -90,6 +90,7 @@ radius = 8.0
 
 [node name="Soldier" instance=ExtResource("1_v2ewn")]
 script = ExtResource("2_1he7a")
+max_velocity = 1000.0
 unit_name = "Soldier"
 
 [node name="UnitSprite" parent="." index="0"]

@@ -2,7 +2,6 @@ extends MoveableUnit
 
 class_name SoldierUnit
 
-
 func _ready():
 	super()
 
