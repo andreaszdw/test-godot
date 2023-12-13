@@ -23,7 +23,7 @@ func _ready():
 	
 	$MapCam.set_max_scroll(tmp_x, tmp_y)
 	
-	for n in range(3):
+	for n in range(5):
 		var s = load("res://Soldier.tscn").instantiate()
 		add_child(s)
 		s.position = Vector2(350, 300 + n * 10)
